@@ -13,10 +13,10 @@
     
     <item>
       <title>Using Agile</title>
-      <link>https://www.deepaksurti.com/blog/using-agile/</link>
+      <link>https://www.deepaksurti.com/using-agile/</link>
       <pubDate>Wed, 11 May 2005 02:28:54 -0700</pubDate>
       
-      <guid>https://www.deepaksurti.com/blog/using-agile/</guid>
+      <guid>https://www.deepaksurti.com/using-agile/</guid>
       <description>The past 3 yrs or so I have learnt a lot of lessons, most of which are &amp;ldquo;how to write better software&amp;rdquo;. &amp;hellip;
 The challenge in front of me is to, at every given opportunity (with a change of perception I realize these are infinite) use agile practices.
 Why do I want to use agile practices? Most importantly using agile practices makes my life less stressful and work infinte fun :-)</description>
@@ -24,20 +24,20 @@ Why do I want to use agile practices? Most importantly using agile practices mak
     
     <item>
       <title>Automated Tests</title>
-      <link>https://www.deepaksurti.com/blog/automated-tests/</link>
+      <link>https://www.deepaksurti.com/automated-tests/</link>
       <pubDate>Sat, 26 Mar 2005 12:47:02 -0700</pubDate>
       
-      <guid>https://www.deepaksurti.com/blog/automated-tests/</guid>
+      <guid>https://www.deepaksurti.com/automated-tests/</guid>
       <description>I was asked to write this utility to convert a graph of objects of type &amp;lsquo;X&amp;rsquo; into type &amp;lsquo;Y&amp;rsquo;. The difference between X and Y is that X objects sit in a layer whereas Y travel all over the network.
 I was already handed out some partly written code. I was happy because I am training myself to be an agile practitioner and reading, working on someone else&amp;rsquo;s code should be easy for me.</description>
     </item>
     
     <item>
       <title>Changing Mindset</title>
-      <link>https://www.deepaksurti.com/blog/changing-mindset/</link>
+      <link>https://www.deepaksurti.com/changing-mindset/</link>
       <pubDate>Sat, 05 Mar 2005 05:12:32 -0800</pubDate>
       
-      <guid>https://www.deepaksurti.com/blog/changing-mindset/</guid>
+      <guid>https://www.deepaksurti.com/changing-mindset/</guid>
       <description>In an earlier post I had pointed out use of TDD and Refactoring to write the domain logic for poll measurements.
 Key activities still were to be done: - Persist this data onto database. - Create views to play with this data.
 You may have guessed I believe in working demos. Not html prototypes. I want to see in code that I can do it atleast in 1 way what I or you claim to be possible.</description>
@@ -45,19 +45,19 @@ You may have guessed I believe in working demos. Not html prototypes. I want to 
     
     <item>
       <title>Personality Types Xp</title>
-      <link>https://www.deepaksurti.com/blog/personality-types-xp/</link>
+      <link>https://www.deepaksurti.com/personality-types-xp/</link>
       <pubDate>Sat, 13 Nov 2004 12:29:26 -0800</pubDate>
       
-      <guid>https://www.deepaksurti.com/blog/personality-types-xp/</guid>
+      <guid>https://www.deepaksurti.com/personality-types-xp/</guid>
       <description>I was going through a chapter of Norman Lewis Reading Faster. Here he talks about personality types and their reading habits. And immediately I started to think if there is a link between personality types and XP. Because what is XP but a set of habits that people on the Xp project have. Habit of writing tests first, habit of automating tests, habit of domain design, habit of integrating continuously. Habits and more habits.</description>
     </item>
     
     <item>
       <title>Xp Inflection Point</title>
-      <link>https://www.deepaksurti.com/blog/xp-inflection-point/</link>
+      <link>https://www.deepaksurti.com/xp-inflection-point/</link>
       <pubDate>Mon, 01 Nov 2004 09:53:59 -0800</pubDate>
       
-      <guid>https://www.deepaksurti.com/blog/xp-inflection-point/</guid>
+      <guid>https://www.deepaksurti.com/xp-inflection-point/</guid>
       <description>The other day I was reading Andrew S Grooves &amp;ldquo;Only the Paranoid Survive&amp;rdquo;. This book basically talks about those points one faces in career or buisiness ( I know nothing there) which do a volte-face. Everything that seemed so right till yesterday has changed completely.
 Andrew talks about PC and Internet, the two inflection points which have impacted both careers and business in a profound way. And he also says that to handle these crisis points or strategic inflection points, one needs always to be on the alert and keep experimenting.</description>
     </item>

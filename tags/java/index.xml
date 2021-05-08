@@ -13,10 +13,10 @@
     
     <item>
       <title>Java Access Specifiers</title>
-      <link>https://www.deepaksurti.com/blog/java-access-specifiers/</link>
+      <link>https://www.deepaksurti.com/java-access-specifiers/</link>
       <pubDate>Wed, 02 Feb 2005 12:48:00 -0800</pubDate>
       
-      <guid>https://www.deepaksurti.com/blog/java-access-specifiers/</guid>
+      <guid>https://www.deepaksurti.com/java-access-specifiers/</guid>
       <description>So many times there is confusion about java and its access specifers. Here’s what they mean once and for all.
 Public: Available to all wherever you may be.
 Private: Available only to me.

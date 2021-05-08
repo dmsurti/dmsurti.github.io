@@ -4,7 +4,17 @@
   
   <url>
     <loc>https://www.deepaksurti.com/projects/</loc>
-    <lastmod>2021-03-06T21:28:52+00:00</lastmod>
+    <lastmod>2014-04-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.deepaksurti.com/</loc>
+    <lastmod>2014-04-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.deepaksurti.com/post/</loc>
+    <lastmod>2005-05-15T10:17:15-07:00</lastmod>
   </url>
   
   <url>
@@ -13,7 +23,7 @@
   </url>
   
   <url>
-    <loc>https://www.deepaksurti.com/blog/my-desk/</loc>
+    <loc>https://www.deepaksurti.com/my-desk/</loc>
     <lastmod>2005-05-15T10:17:15-07:00</lastmod>
   </url>
   
@@ -28,7 +38,7 @@
   </url>
   
   <url>
-    <loc>https://www.deepaksurti.com/blog/using-agile/</loc>
+    <loc>https://www.deepaksurti.com/using-agile/</loc>
     <lastmod>2005-05-11T02:28:54-07:00</lastmod>
   </url>
   
@@ -38,7 +48,7 @@
   </url>
   
   <url>
-    <loc>https://www.deepaksurti.com/blog/automated-tests/</loc>
+    <loc>https://www.deepaksurti.com/automated-tests/</loc>
     <lastmod>2005-03-26T12:47:02-07:00</lastmod>
   </url>
   
@@ -48,12 +58,12 @@
   </url>
   
   <url>
-    <loc>https://www.deepaksurti.com/blog/changing-mindset/</loc>
+    <loc>https://www.deepaksurti.com/changing-mindset/</loc>
     <lastmod>2005-03-05T05:12:32-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.deepaksurti.com/blog/business-knowledge-and-software-projects/</loc>
+    <loc>https://www.deepaksurti.com/business-knowledge-and-software-projects/</loc>
     <lastmod>2005-02-05T07:07:31-08:00</lastmod>
   </url>
   
@@ -68,7 +78,7 @@
   </url>
   
   <url>
-    <loc>https://www.deepaksurti.com/blog/reading-styles/</loc>
+    <loc>https://www.deepaksurti.com/reading-styles/</loc>
     <lastmod>2005-02-04T07:53:59-08:00</lastmod>
   </url>
   
@@ -78,7 +88,7 @@
   </url>
   
   <url>
-    <loc>https://www.deepaksurti.com/blog/java-access-specifiers/</loc>
+    <loc>https://www.deepaksurti.com/java-access-specifiers/</loc>
     <lastmod>2005-02-02T12:48:00-08:00</lastmod>
   </url>
   
@@ -88,12 +98,12 @@
   </url>
   
   <url>
-    <loc>https://www.deepaksurti.com/blog/why-refactoring-helps/</loc>
+    <loc>https://www.deepaksurti.com/why-refactoring-helps/</loc>
     <lastmod>2005-01-27T05:43:38-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.deepaksurti.com/blog/no-new-year-resolutions/</loc>
+    <loc>https://www.deepaksurti.com/no-new-year-resolutions/</loc>
     <lastmod>2005-01-11T05:25:34-08:00</lastmod>
   </url>
   
@@ -108,7 +118,7 @@
   </url>
   
   <url>
-    <loc>https://www.deepaksurti.com/blog/learning-tips/</loc>
+    <loc>https://www.deepaksurti.com/learning-tips/</loc>
     <lastmod>2004-12-05T02:43:31-08:00</lastmod>
   </url>
   
@@ -123,38 +133,28 @@
   </url>
   
   <url>
-    <loc>https://www.deepaksurti.com/blog/iim-cat-2004/</loc>
+    <loc>https://www.deepaksurti.com/iim-cat-2004/</loc>
     <lastmod>2004-11-23T12:06:49-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.deepaksurti.com/blog/personality-types-xp/</loc>
+    <loc>https://www.deepaksurti.com/personality-types-xp/</loc>
     <lastmod>2004-11-13T12:29:26-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.deepaksurti.com/blog/xp-inflection-point/</loc>
+    <loc>https://www.deepaksurti.com/xp-inflection-point/</loc>
     <lastmod>2004-11-01T09:53:59-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.deepaksurti.com/blog/i-will/</loc>
+    <loc>https://www.deepaksurti.com/i-will/</loc>
     <lastmod>2004-10-21T01:30:34-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.deepaksurti.com/blog/reading-better-faster/</loc>
+    <loc>https://www.deepaksurti.com/reading-better-faster/</loc>
     <lastmod>2004-10-20T05:46:37-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.deepaksurti.com/blog/</loc>
-    <lastmod>2021-03-06T21:28:52+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://www.deepaksurti.com/</loc>
-    <lastmod>2021-03-06T21:28:52+00:00</lastmod>
   </url>
   
 </urlset>
