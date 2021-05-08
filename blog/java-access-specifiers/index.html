@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.58.3" />
-  <link rel="canonical" href="/tags/reading/">
+  <link rel="canonical" href="/blog/java-access-specifiers/">
 
   
 
@@ -39,7 +39,7 @@
 
   
   
-  <title>reading | Cupper</title>
+  <title>Java Access Specifiers | Cupper</title>
 </head>
 
   <body>
@@ -212,7 +212,7 @@
       
       
       
-      <a href="/tags/" aria-current="page">
+      <a href="/tags/" >
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -229,68 +229,187 @@
       <div class="main-and-footer">
         <div>
           
-<main id="main">
-  <h1>reading</h1>
-  
-  <input
-    id="search"
-    type="text"
-    placeholder="Search by title..."
-    aria-label="Search by title"
-  />
-  
-  <ul class="patterns-list" id="list">
-    
-    <li>
-      <h2>
-        <a href="/blog/reading-styles/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          Reading Styles
-        </a>
-      </h2>
-    </li>
-    
-    <li>
-      <h2>
-        <a href="/blog/i-will/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          I Will
-        </a>
-      </h2>
-    </li>
-    
-    <li>
-      <h2>
-        <a href="/blog/reading-better-faster/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          Reading Better Faster
-        </a>
-      </h2>
-    </li>
-    
-  </ul>
-</main>
+  <main id="main">
+    <h1>Java Access Specifiers</h1>
+    <p>So many times there is confusion about java and its access specifers. Here’s what they mean once and for all.</p>
+
+<p>Public: Available to all wherever you may be.</p>
+
+<p>Private: Available only to me.</p>
+
+<p>Protected: Available to my derived types.</p>
+
+<p>Friend: Available to all who belong to my group (package) i.e. are my friends.</p>
+
+<p>Naturally, if I make a class private it can’t be accessed by anyone except the class itself! Now trying make a class
+protected. Then it will available to only its derived types. But its protected and you cant derive a type. Hence
+classes don’t have private/protected specifiers. They have only public / friend specifiers.</p>
+
+<p>However pick any class member and you can safely say it can be either public, private, protected or friend.</p>
+
+<p>That’s good enough. But real java code will be a mix of public/friend classes with members at different access levels.
+The matrix is revealed below:</p>
+
+<p>The following is a list of classes we have:</p>
+
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Access</th>
+<th>Package</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>A</td>
+<td>Public</td>
+<td>com.test</td>
+</tr>
+
+<tr>
+<td>B</td>
+<td>Public or Friend</td>
+<td>com.test</td>
+</tr>
+
+<tr>
+<td>C extends A</td>
+<td>Public of Friend</td>
+<td>com.test</td>
+</tr>
+
+<tr>
+<td>D</td>
+<td>Public of Friend</td>
+<td>com.testother</td>
+</tr>
+
+<tr>
+<td>E extends A</td>
+<td>Public of Friend</td>
+<td>com.testother</td>
+</tr>
+</tbody>
+</table>
+
+<p>Lets see what members of A are accessible to what members of B, C, D, E. Classes B, C are in same package as A while D,
+E are outside of the package that A belongs to.</p>
+
+<table>
+<thead>
+<tr>
+<th>Non static members of A</th>
+<th>Can be accessed by</th>
+<th>Can be overridden by</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Public</td>
+<td>B, C, D, E</td>
+<td>C, E</td>
+</tr>
+
+<tr>
+<td>Protected</td>
+<td>C, E</td>
+<td>C, E</td>
+</tr>
+
+<tr>
+<td>Friend</td>
+<td>B, C</td>
+<td>C</td>
+</tr>
+
+<tr>
+<td>Private</td>
+<td>None</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+
+<p>Now lets apply the above to a friend class.</p>
+
+<p>The following is a list of classes we have:</p>
+
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Access</th>
+<th>Package</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>F</td>
+<td>Friend</td>
+<td>com.test</td>
+</tr>
+
+<tr>
+<td>G</td>
+<td>Public or Friend</td>
+<td>com.test</td>
+</tr>
+
+<tr>
+<td>H extends F</td>
+<td>Public of Friend</td>
+<td>com.test</td>
+</tr>
+</tbody>
+</table>
+
+<p>Naturally here I consider classes only in same package as F.</p>
+
+<p>Lets see what happens here.</p>
+
+<table>
+<thead>
+<tr>
+<th>Non static members of F</th>
+<th>Can be accessed by</th>
+<th>Can be overridden by</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Public</td>
+<td>G, H</td>
+<td>H</td>
+</tr>
+
+<tr>
+<td>Protected</td>
+<td>H</td>
+<td>H</td>
+</tr>
+
+<tr>
+<td>Friend</td>
+<td>G, H</td>
+<td>H</td>
+</tr>
+
+<tr>
+<td>Private</td>
+<td>None</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+
+<p>Note that static public members of F can be accessed outside the package!</p>
+
+  </main>
 
           
             <footer role="contentinfo">

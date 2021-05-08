@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>refactoring on Cupper</title>
+    <link>https://www.deepaksurti.com/tags/refactoring/</link>
+    <description>Recent content in refactoring on Cupper</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 27 Jan 2005 05:43:38 -0800</lastBuildDate>
+    
+	<atom:link href="https://www.deepaksurti.com/tags/refactoring/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Why Refactoring Helps</title>
+      <link>https://www.deepaksurti.com/blog/why-refactoring-helps/</link>
+      <pubDate>Thu, 27 Jan 2005 05:43:38 -0800</pubDate>
+      
+      <guid>https://www.deepaksurti.com/blog/why-refactoring-helps/</guid>
+      <description>Take a look.
+I had this requirment:
+We conduct polls (which can be looked at like permanent polls). We gather monthly statistics. We want to : - find out votes cast till a month say Jun 2005 - find out votes cast for a quarter of a finanical year say Quarter 1 for 2004 - 2005 - find out votes cast for a half yearly of a financial year say half year 1 for 2004 - 2005 - find out votes cast for a fin year say 2004 - 2005.</description>
+    </item>
+    
+  </channel>
+</rss>

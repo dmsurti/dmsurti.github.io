@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>desk on Cupper</title>
+    <link>https://www.deepaksurti.com/tags/desk/</link>
+    <description>Recent content in desk on Cupper</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 15 May 2005 10:17:15 -0700</lastBuildDate>
+    
+	<atom:link href="https://www.deepaksurti.com/tags/desk/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>My Desk</title>
+      <link>https://www.deepaksurti.com/blog/my-desk/</link>
+      <pubDate>Sun, 15 May 2005 10:17:15 -0700</pubDate>
+      
+      <guid>https://www.deepaksurti.com/blog/my-desk/</guid>
+      <description>When its so tidy..chances are I may not be at work :-)</description>
+    </item>
+    
+  </channel>
+</rss>

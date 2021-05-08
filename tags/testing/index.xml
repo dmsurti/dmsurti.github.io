@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>testing on Cupper</title>
+    <link>https://www.deepaksurti.com/tags/testing/</link>
+    <description>Recent content in testing on Cupper</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 26 Mar 2005 12:47:02 -0700</lastBuildDate>
+    
+	<atom:link href="https://www.deepaksurti.com/tags/testing/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Automated Tests</title>
+      <link>https://www.deepaksurti.com/blog/automated-tests/</link>
+      <pubDate>Sat, 26 Mar 2005 12:47:02 -0700</pubDate>
+      
+      <guid>https://www.deepaksurti.com/blog/automated-tests/</guid>
+      <description>I was asked to write this utility to convert a graph of objects of type &amp;lsquo;X&amp;rsquo; into type &amp;lsquo;Y&amp;rsquo;. The difference between X and Y is that X objects sit in a layer whereas Y travel all over the network.
+I was already handed out some partly written code. I was happy because I am training myself to be an agile practitioner and reading, working on someone else&amp;rsquo;s code should be easy for me.</description>
+    </item>
+    
+  </channel>
+</rss>

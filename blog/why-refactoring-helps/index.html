@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.58.3" />
-  <link rel="canonical" href="/tags/reading/">
+  <link rel="canonical" href="/blog/why-refactoring-helps/">
 
   
 
@@ -39,7 +39,7 @@
 
   
   
-  <title>reading | Cupper</title>
+  <title>Why Refactoring Helps | Cupper</title>
 </head>
 
   <body>
@@ -212,7 +212,7 @@
       
       
       
-      <a href="/tags/" aria-current="page">
+      <a href="/tags/" >
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -229,68 +229,174 @@
       <div class="main-and-footer">
         <div>
           
-<main id="main">
-  <h1>reading</h1>
+  <main id="main">
+    <h1>Why Refactoring Helps</h1>
+    <p>Take a look.</p>
+
+<p>I had this requirment:</p>
+
+<p>We conduct polls (which can be looked at like permanent polls). We gather monthly statistics. We want to :
+- find out votes cast till a month say Jun 2005
+- find out votes cast for a quarter of a finanical year say Quarter 1 for 2004 - 2005
+- find out votes cast for a half yearly of a financial year say half year 1 for 2004 - 2005
+- find out votes cast for a fin year say 2004 - 2005.</p>
+
+<p>Then the user told me &ldquo;hey we capture votes in various forms, for me the most erratic turned out to be Money&rdquo;. So I
+started with that.</p>
+
+<p>To start off I started without implementing any classes but with junit test cases which looked like:</p>
+
+<pre><code class="language-java">PollTest { 
+  setUp() {//this also came out of refactoring but I wont go into it 
+    newPoll = new Poll(&quot;X&quot;); 
+    aprData = new MonthlyData(&quot;apr 2004&quot;, new Money(265, USD)); //This money looks good //:-) 
+    mayData = new MonthlyData(&quot;may 2004&quot;, new Money(335, USD)); 
+    //and so on for mths till Mar 2005 
+    newPoll.addMonthlyData(aprilData); 
+    newPoll.addMonthlyData(mayData); 
+    //and so on for mths till Mar 2005 
+  } 
+
+  testOneMthBalance() { 
+    assertEquals(new Money(265, USD), newPoll.getBalanceTill(&quot;apr 2004&quot;)); 
   
-  <input
-    id="search"
-    type="text"
-    placeholder="Search by title..."
-    aria-label="Search by title"
-  />
+  } 
   
-  <ul class="patterns-list" id="list">
-    
-    <li>
-      <h2>
-        <a href="/blog/reading-styles/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          Reading Styles
-        </a>
-      </h2>
-    </li>
-    
-    <li>
-      <h2>
-        <a href="/blog/i-will/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          I Will
-        </a>
-      </h2>
-    </li>
-    
-    <li>
-      <h2>
-        <a href="/blog/reading-better-faster/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          Reading Better Faster
-        </a>
-      </h2>
-    </li>
-    
-  </ul>
-</main>
+  testTwoMonthsBalance(){ 
+    assertEquals(new Money(600, USD), newPoll.getBalanceTill(&quot;may2004&quot;); 
+  } 
+  
+  //and so on for newPoll.getQuarterlyBalance(quareterNo, financialYear).... 
+} 
+</code></pre>
+
+<p>Note: I write one test method , see the red bar in junit, then implement that and see the green bar in junit. After
+writing methods for all such balances reqd, my code in poll class looked like:</p>
+
+<pre><code class="language-java">Poll { 
+  List monthlyData; 
+  
+  public Money getBalanceTill(Date mth) { 
+    Iterator e = monthlyData.getIterator(); 
+    Money balance = new Money(0, USD); 
+    while(e.hasnext() ) { 
+    MonthlyData eachData = (MonthlyData)e.next(); 
+    if(! eachData.getMth().after(mth)) { 
+      balance = balance.add(eachData .getVotes()); 
+    } 
+    return balance; 
+  } 
+} 
+</code></pre>
+
+<p>//Note below: I look at a financial year as a range, hence the Range pattern.makes life easy</p>
+
+<pre><code class="language-java">public Money getQuarterlybalance(int quarter, DateRange finYear) { 
+  Iterator e = monthlyData.getIterator(); 
+  Money balance = new Money(0, USD); 
+  //This method gives me range(apr 2004 to jun 2004) for quarter = 1 of 2004 - 2005 fin year 
+  DateRange quarterRange = financialYearUtility.getQuarter(quareterNo, finyear); 
+  while(e.hasnext() ) { 
+    MonthlyData eachData = (MonthlyData)e.next(); 
+    if(quarterRange .contains(eachData.getMth()) { 
+      balance = balance.add(eachData .getVotes()); 
+    } 
+  } 
+  return balance; 
+} 
+
+public Money getHalfYearlyBalance(int halfyearno, DateRange finYear) { 
+  Iterator e = monthlyData.getIterator(); 
+  Money balance = new Money(0, USD); 
+  //This method gives me range(apr 2004 to sep 2004) for half year= 1 of 2004 - 2005 fin year 
+  DateRange halfYearRange= financialYearUtility.getHalfYear(halfyearno, finyear); 
+  while(e.hasnext() ) { 
+    MonthlyData eachData = (MonthlyData)e.next(); 
+    if(halfYearRange.contains(eachData.getMth()) { 
+      balance = balance.add(eachData .getVotes()); 
+    } 
+  }
+  return balance; 
+} 
+
+public Money getYearlyBalance(DateRange finYear) { 
+  Iterator e = monthlyData.getIterator(); 
+  Money balance = new Money(0, USD); 
+  while(e.hasnext() ) { 
+    MonthlyData eachData = (MonthlyData)e.next(); 
+    if(finYear.contains(eachData.getMth()) { 
+      balance = balance.add(eachData .getVotes()); 
+    }
+  } 
+  return balance; 
+} 
+</code></pre>
+
+<p>PS: This is also extracted sample code.</p>
+
+<p>After all this pain, junit was turning green. I had small classes like Poll, MonthlyData, DateRange,
+FinancialYearUtility (to give me ranges I wanted), DateRange, Money. I was happy. Nah.  Whenever I looked at above four
+methods I wasnt. I knew I could reduce them. But couldnt. Then suddenly it struck me. Look closely. All four methods
+iterate the monthly list.</p>
+
+<p>For those mths whcih fall within a range, it gives me the balance. I started off with getBalanceTill(mth) and all
+following methods pretty much did the same.  For getBalanceTill method, I figured out its nothing but corresponding fin
+year start mth - to given mth. Bingo. Now my 4 methods looked like this:</p>
+
+<pre><code class="language-java">Poll { 
+   private Money getBalanceFor(DateRange range) { 
+     Iterator e = monthlyData.getIterator(); 
+     Money balance = new Money(0, USD); 
+     while(e.hasnext() ) { 
+       MonthlyData eachData = (MonthlyData)e.next(); 
+       if(range.contains(eachData.getMth()) { 
+         balance = balance.add(eachData .getVotes()); 
+       } 
+     }
+     return balance; 
+   } 
+   
+   public Money getBalanceTill(Date mth) { 
+     return getBalanceForRange(financialYearUtility.getRangeFor(mth)); 
+   } 
+   
+   public Money getQuarterlyBalance(int quarterNo, DateRange finYear) { 
+     return getBalanceForRange(financialYearUtility.getQuarter(quarterNo, finYear)); 
+   } 
+   
+   public Money getHalfYearlyBalance(int halfYearlyNo, DateRange finYear) { 
+     return getBalanceForRange(financialYearUtility.getHalfYear(halfYearlyNo, finYear)); 
+   } 
+   
+   public Money getYearlyBalance(DateRange finYear) { 
+     return getBalanceForRange(finYear); 
+   } 
+} 
+</code></pre>
+
+<p>Note:
+I was very happy because it reduced lines of code and made code more simpler. My pair partner (a learner ;-) aruged
+getYearlyBalance and getBalanceFor(range) methods are same. I said yes.  But I went for transparency than reducing even
+more lines of code because that would make the code confusing.
+He asked how and I said if year mthd does the task of calculating balances then half yearly method looks like:</p>
+
+<pre><code class="language-java">public Money getHalfYearlyBalance(int halfYearlyNo, DateRange finYear) { 
+  return getYearlyBalance(financialYearUtility.getHalfYear(halfYearlyNo, finYear)); 
+} // i will go nuts if i read something like this 
+</code></pre>
+
+<p>So you got to judge the values of refactorings. First up, refactoring is letting u enable DRY (Dont Repeat Yourself)
+principle. At the same time keep looking for writing maintainable code.</p>
+
+<p>Surprising aint it, that when I get into projects which force me to write procedural code in Java, I SUCK BIG TIME&gt; but
+i m happy (that means I cant move away from OO code :-). Some things in life cant be explained.</p>
+
+<p>This learner friend of mine remarked &ldquo;No probs if you are arrogant about your OO Skills. Be like that. Its FUN&rdquo; :-)</p>
+
+<p>Anyone wants to expand Money class and handle all conversions is welcome. I am more than glad. :-P. Anyone wants to
+learn Refactoring, TDD give me a shout.</p>
+
+  </main>
 
           
             <footer role="contentinfo">
