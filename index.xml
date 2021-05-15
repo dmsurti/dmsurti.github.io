@@ -21,6 +21,16 @@
     </item>
     
     <item>
+      <title>Hibernate Mappings &amp; Encapsulated Collections</title>
+      <link>https://www.deepaksurti.com/hibernate-mappings-collections/</link>
+      <pubDate>Tue, 17 May 2005 05:13:32 -0800</pubDate>
+      
+      <guid>https://www.deepaksurti.com/hibernate-mappings-collections/</guid>
+      <description>Collections must be encapsulated. Also I am using Hibernate as the persistence solution. I have a uni-directional many to many relationship between Parent and Child. My java code looks like this:
+Parent { String name; Set children = new HashSet(); public void getChildren() { return Collections.unmodifiableCollection(children); } private void setChildren(Set children) { this.children = children; } public void addChild(Child obj) { ///..... } public void removeChild(Child obj) { ///.... } } Child { String name; //.</description>
+    </item>
+    
+    <item>
       <title>My Desk</title>
       <link>https://www.deepaksurti.com/my-desk/</link>
       <pubDate>Sun, 15 May 2005 10:17:15 -0700</pubDate>

@@ -6,10 +6,20 @@
     <description>Recent content in java on Cupper</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 02 Feb 2005 12:48:00 -0800</lastBuildDate>
+    <lastBuildDate>Tue, 17 May 2005 05:13:32 -0800</lastBuildDate>
     
 	<atom:link href="https://www.deepaksurti.com/tags/java/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Hibernate Mappings &amp; Encapsulated Collections</title>
+      <link>https://www.deepaksurti.com/hibernate-mappings-collections/</link>
+      <pubDate>Tue, 17 May 2005 05:13:32 -0800</pubDate>
+      
+      <guid>https://www.deepaksurti.com/hibernate-mappings-collections/</guid>
+      <description>Collections must be encapsulated. Also I am using Hibernate as the persistence solution. I have a uni-directional many to many relationship between Parent and Child. My java code looks like this:
+Parent { String name; Set children = new HashSet(); public void getChildren() { return Collections.unmodifiableCollection(children); } private void setChildren(Set children) { this.children = children; } public void addChild(Child obj) { ///..... } public void removeChild(Child obj) { ///.... } } Child { String name; //.</description>
+    </item>
     
     <item>
       <title>Java Access Specifiers</title>
