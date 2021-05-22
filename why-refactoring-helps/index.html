@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.83.1" />
   <link rel="canonical" href="/why-refactoring-helps/">
 
   
@@ -184,6 +184,7 @@
       
       
       
+      
       <a href="/" >
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
@@ -193,6 +194,7 @@
     </li>
   
     <li class="pattern">
+      
       
       
       
@@ -210,6 +212,21 @@
       
       
       
+      
+      <a href="/series/" >
+        <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
+          <use xlink:href="#bookmark"></use>
+        </svg>
+        <span class="text">Tutorials</span>
+      </a>
+    </li>
+  
+    <li class="pattern">
+      
+      
+      
+      
+      
       <a href="/projects" >
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
@@ -219,6 +236,7 @@
     </li>
   
     <li class="pattern">
+      
       
       
       
@@ -233,6 +251,7 @@
   
   </ul>
 </nav>
+
     
   </div>
 </header>
@@ -274,6 +293,23 @@
       </div>
     
     
+    <div class="prev-next-post">
+<div class="prev-post">
+	
+	<a class="link-reverse" href="https://www.deepaksurti.com/no-new-year-resolutions/?ref=footer">« No New Year Resolutions </a>
+	
+</div>
+
+<div class="next-post">
+	
+	<a class="link-reverse" href="https://www.deepaksurti.com/java-access-specifiers/?ref=footer">Java Access Specifiers »</a>
+	
+</div>
+
+</div>
+
+
+
     
       
 
@@ -281,171 +317,303 @@
     
 
     <p>Take a look.</p>
-
 <p>I had this requirment:</p>
-
-<p>We conduct polls (which can be looked at like permanent polls). We gather monthly statistics. We want to :
-- find out votes cast till a month say Jun 2005
-- find out votes cast for a quarter of a finanical year say Quarter 1 for 2004 - 2005
-- find out votes cast for a half yearly of a financial year say half year 1 for 2004 - 2005
-- find out votes cast for a fin year say 2004 - 2005.</p>
-
+<p>We conduct polls (which can be looked at like permanent polls). We gather monthly statistics. We want to :</p>
+<ul>
+<li>find out votes cast till a month say Jun 2005</li>
+<li>find out votes cast for a quarter of a finanical year say Quarter 1 for 2004 - 2005</li>
+<li>find out votes cast for a half yearly of a financial year say half year 1 for 2004 - 2005</li>
+<li>find out votes cast for a fin year say 2004 - 2005.</li>
+</ul>
 <p>Then the user told me &ldquo;hey we capture votes in various forms, for me the most erratic turned out to be Money&rdquo;. So I
 started with that.</p>
-
 <p>To start off I started without implementing any classes but with junit test cases which looked like:</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">PollTest <span style="color:#f92672">{</span> 
+  setUp<span style="color:#f92672">()</span> <span style="color:#f92672">{</span><span style="color:#75715e">//this also came out of refactoring but I wont go into it 
+</span><span style="color:#75715e"></span>    newPoll <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Poll<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;X&#34;</span><span style="color:#f92672">);</span> 
+    aprData <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> MonthlyData<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;apr 2004&#34;</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> Money<span style="color:#f92672">(</span>265<span style="color:#f92672">,</span> USD<span style="color:#f92672">));</span> <span style="color:#75715e">//This money looks good //:-) 
+</span><span style="color:#75715e"></span>    mayData <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> MonthlyData<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;may 2004&#34;</span><span style="color:#f92672">,</span> <span style="color:#66d9ef">new</span> Money<span style="color:#f92672">(</span>335<span style="color:#f92672">,</span> USD<span style="color:#f92672">));</span> 
+    <span style="color:#75715e">//and so on for mths till Mar 2005 
+</span><span style="color:#75715e"></span>    newPoll<span style="color:#f92672">.</span><span style="color:#a6e22e">addMonthlyData</span><span style="color:#f92672">(</span>aprilData<span style="color:#f92672">);</span> 
+    newPoll<span style="color:#f92672">.</span><span style="color:#a6e22e">addMonthlyData</span><span style="color:#f92672">(</span>mayData<span style="color:#f92672">);</span> 
+    <span style="color:#75715e">//and so on for mths till Mar 2005 
+</span><span style="color:#75715e"></span>  <span style="color:#f92672">}</span> 
 
-<pre><code class="language-java">PollTest { 
-  setUp() {//this also came out of refactoring but I wont go into it 
-    newPoll = new Poll(&quot;X&quot;); 
-    aprData = new MonthlyData(&quot;apr 2004&quot;, new Money(265, USD)); //This money looks good //:-) 
-    mayData = new MonthlyData(&quot;may 2004&quot;, new Money(335, USD)); 
-    //and so on for mths till Mar 2005 
-    newPoll.addMonthlyData(aprilData); 
-    newPoll.addMonthlyData(mayData); 
-    //and so on for mths till Mar 2005 
-  } 
-
-  testOneMthBalance() { 
-    assertEquals(new Money(265, USD), newPoll.getBalanceTill(&quot;apr 2004&quot;)); 
+  testOneMthBalance<span style="color:#f92672">()</span> <span style="color:#f92672">{</span> 
+    assertEquals<span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Money<span style="color:#f92672">(</span>265<span style="color:#f92672">,</span> USD<span style="color:#f92672">),</span> newPoll<span style="color:#f92672">.</span><span style="color:#a6e22e">getBalanceTill</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;apr 2004&#34;</span><span style="color:#f92672">));</span> 
   
-  } 
+  <span style="color:#f92672">}</span> 
   
-  testTwoMonthsBalance(){ 
-    assertEquals(new Money(600, USD), newPoll.getBalanceTill(&quot;may2004&quot;); 
-  } 
+  testTwoMonthsBalance<span style="color:#f92672">(){</span> 
+    assertEquals<span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Money<span style="color:#f92672">(</span>600<span style="color:#f92672">,</span> USD<span style="color:#f92672">),</span> newPoll<span style="color:#f92672">.</span><span style="color:#a6e22e">getBalanceTill</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;may2004&#34;</span><span style="color:#f92672">);</span> 
+  <span style="color:#f92672">}</span> 
   
-  //and so on for newPoll.getQuarterlyBalance(quareterNo, financialYear).... 
-} 
-</code></pre>
-
-<p>Note: I write one test method , see the red bar in junit, then implement that and see the green bar in junit. After
+  <span style="color:#75715e">//and so on for newPoll.getQuarterlyBalance(quareterNo, financialYear).... 
+</span><span style="color:#75715e"></span><span style="color:#f92672">}</span> 
+</code></pre></td></tr></table>
+</div>
+</div><p>Note: I write one test method , see the red bar in junit, then implement that and see the green bar in junit. After
 writing methods for all such balances reqd, my code in poll class looked like:</p>
-
-<pre><code class="language-java">Poll { 
-  List monthlyData; 
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Poll <span style="color:#f92672">{</span> 
+  List monthlyData<span style="color:#f92672">;</span> 
   
-  public Money getBalanceTill(Date mth) { 
-    Iterator e = monthlyData.getIterator(); 
-    Money balance = new Money(0, USD); 
-    while(e.hasnext() ) { 
-    MonthlyData eachData = (MonthlyData)e.next(); 
-    if(! eachData.getMth().after(mth)) { 
-      balance = balance.add(eachData .getVotes()); 
-    } 
-    return balance; 
-  } 
-} 
-</code></pre>
+  <span style="color:#66d9ef">public</span> Money <span style="color:#a6e22e">getBalanceTill</span><span style="color:#f92672">(</span>Date mth<span style="color:#f92672">)</span> <span style="color:#f92672">{</span> 
+    Iterator e <span style="color:#f92672">=</span> monthlyData<span style="color:#f92672">.</span><span style="color:#a6e22e">getIterator</span><span style="color:#f92672">();</span> 
+    Money balance <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Money<span style="color:#f92672">(</span>0<span style="color:#f92672">,</span> USD<span style="color:#f92672">);</span> 
+    <span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>e<span style="color:#f92672">.</span><span style="color:#a6e22e">hasnext</span><span style="color:#f92672">()</span> <span style="color:#f92672">)</span> <span style="color:#f92672">{</span> 
+    MonthlyData eachData <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>MonthlyData<span style="color:#f92672">)</span>e<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">();</span> 
+    <span style="color:#66d9ef">if</span><span style="color:#f92672">(!</span> eachData<span style="color:#f92672">.</span><span style="color:#a6e22e">getMth</span><span style="color:#f92672">().</span><span style="color:#a6e22e">after</span><span style="color:#f92672">(</span>mth<span style="color:#f92672">))</span> <span style="color:#f92672">{</span> 
+      balance <span style="color:#f92672">=</span> balance<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>eachData <span style="color:#f92672">.</span><span style="color:#a6e22e">getVotes</span><span style="color:#f92672">());</span> 
+    <span style="color:#f92672">}</span> 
+    <span style="color:#66d9ef">return</span> balance<span style="color:#f92672">;</span> 
+  <span style="color:#f92672">}</span> 
+<span style="color:#f92672">}</span> 
+</code></pre></td></tr></table>
+</div>
+</div><p>//Note below: I look at a financial year as a range, hence the Range pattern.makes life easy</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> Money <span style="color:#a6e22e">getQuarterlybalance</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> quarter<span style="color:#f92672">,</span> DateRange finYear<span style="color:#f92672">)</span> <span style="color:#f92672">{</span> 
+  Iterator e <span style="color:#f92672">=</span> monthlyData<span style="color:#f92672">.</span><span style="color:#a6e22e">getIterator</span><span style="color:#f92672">();</span> 
+  Money balance <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Money<span style="color:#f92672">(</span>0<span style="color:#f92672">,</span> USD<span style="color:#f92672">);</span> 
+  <span style="color:#75715e">//This method gives me range(apr 2004 to jun 2004) for quarter = 1 of 2004 - 2005 fin year 
+</span><span style="color:#75715e"></span>  DateRange quarterRange <span style="color:#f92672">=</span> financialYearUtility<span style="color:#f92672">.</span><span style="color:#a6e22e">getQuarter</span><span style="color:#f92672">(</span>quareterNo<span style="color:#f92672">,</span> finyear<span style="color:#f92672">);</span> 
+  <span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>e<span style="color:#f92672">.</span><span style="color:#a6e22e">hasnext</span><span style="color:#f92672">()</span> <span style="color:#f92672">)</span> <span style="color:#f92672">{</span> 
+    MonthlyData eachData <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>MonthlyData<span style="color:#f92672">)</span>e<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">();</span> 
+    <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>quarterRange <span style="color:#f92672">.</span><span style="color:#a6e22e">contains</span><span style="color:#f92672">(</span>eachData<span style="color:#f92672">.</span><span style="color:#a6e22e">getMth</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span> 
+      balance <span style="color:#f92672">=</span> balance<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>eachData <span style="color:#f92672">.</span><span style="color:#a6e22e">getVotes</span><span style="color:#f92672">());</span> 
+    <span style="color:#f92672">}</span> 
+  <span style="color:#f92672">}</span> 
+  <span style="color:#66d9ef">return</span> balance<span style="color:#f92672">;</span> 
+<span style="color:#f92672">}</span> 
 
-<p>//Note below: I look at a financial year as a range, hence the Range pattern.makes life easy</p>
+<span style="color:#66d9ef">public</span> Money <span style="color:#a6e22e">getHalfYearlyBalance</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> halfyearno<span style="color:#f92672">,</span> DateRange finYear<span style="color:#f92672">)</span> <span style="color:#f92672">{</span> 
+  Iterator e <span style="color:#f92672">=</span> monthlyData<span style="color:#f92672">.</span><span style="color:#a6e22e">getIterator</span><span style="color:#f92672">();</span> 
+  Money balance <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Money<span style="color:#f92672">(</span>0<span style="color:#f92672">,</span> USD<span style="color:#f92672">);</span> 
+  <span style="color:#75715e">//This method gives me range(apr 2004 to sep 2004) for half year= 1 of 2004 - 2005 fin year 
+</span><span style="color:#75715e"></span>  DateRange halfYearRange<span style="color:#f92672">=</span> financialYearUtility<span style="color:#f92672">.</span><span style="color:#a6e22e">getHalfYear</span><span style="color:#f92672">(</span>halfyearno<span style="color:#f92672">,</span> finyear<span style="color:#f92672">);</span> 
+  <span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>e<span style="color:#f92672">.</span><span style="color:#a6e22e">hasnext</span><span style="color:#f92672">()</span> <span style="color:#f92672">)</span> <span style="color:#f92672">{</span> 
+    MonthlyData eachData <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>MonthlyData<span style="color:#f92672">)</span>e<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">();</span> 
+    <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>halfYearRange<span style="color:#f92672">.</span><span style="color:#a6e22e">contains</span><span style="color:#f92672">(</span>eachData<span style="color:#f92672">.</span><span style="color:#a6e22e">getMth</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span> 
+      balance <span style="color:#f92672">=</span> balance<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>eachData <span style="color:#f92672">.</span><span style="color:#a6e22e">getVotes</span><span style="color:#f92672">());</span> 
+    <span style="color:#f92672">}</span> 
+  <span style="color:#f92672">}</span>
+  <span style="color:#66d9ef">return</span> balance<span style="color:#f92672">;</span> 
+<span style="color:#f92672">}</span> 
 
-<pre><code class="language-java">public Money getQuarterlybalance(int quarter, DateRange finYear) { 
-  Iterator e = monthlyData.getIterator(); 
-  Money balance = new Money(0, USD); 
-  //This method gives me range(apr 2004 to jun 2004) for quarter = 1 of 2004 - 2005 fin year 
-  DateRange quarterRange = financialYearUtility.getQuarter(quareterNo, finyear); 
-  while(e.hasnext() ) { 
-    MonthlyData eachData = (MonthlyData)e.next(); 
-    if(quarterRange .contains(eachData.getMth()) { 
-      balance = balance.add(eachData .getVotes()); 
-    } 
-  } 
-  return balance; 
-} 
-
-public Money getHalfYearlyBalance(int halfyearno, DateRange finYear) { 
-  Iterator e = monthlyData.getIterator(); 
-  Money balance = new Money(0, USD); 
-  //This method gives me range(apr 2004 to sep 2004) for half year= 1 of 2004 - 2005 fin year 
-  DateRange halfYearRange= financialYearUtility.getHalfYear(halfyearno, finyear); 
-  while(e.hasnext() ) { 
-    MonthlyData eachData = (MonthlyData)e.next(); 
-    if(halfYearRange.contains(eachData.getMth()) { 
-      balance = balance.add(eachData .getVotes()); 
-    } 
-  }
-  return balance; 
-} 
-
-public Money getYearlyBalance(DateRange finYear) { 
-  Iterator e = monthlyData.getIterator(); 
-  Money balance = new Money(0, USD); 
-  while(e.hasnext() ) { 
-    MonthlyData eachData = (MonthlyData)e.next(); 
-    if(finYear.contains(eachData.getMth()) { 
-      balance = balance.add(eachData .getVotes()); 
-    }
-  } 
-  return balance; 
-} 
-</code></pre>
-
-<p>PS: This is also extracted sample code.</p>
-
+<span style="color:#66d9ef">public</span> Money <span style="color:#a6e22e">getYearlyBalance</span><span style="color:#f92672">(</span>DateRange finYear<span style="color:#f92672">)</span> <span style="color:#f92672">{</span> 
+  Iterator e <span style="color:#f92672">=</span> monthlyData<span style="color:#f92672">.</span><span style="color:#a6e22e">getIterator</span><span style="color:#f92672">();</span> 
+  Money balance <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Money<span style="color:#f92672">(</span>0<span style="color:#f92672">,</span> USD<span style="color:#f92672">);</span> 
+  <span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>e<span style="color:#f92672">.</span><span style="color:#a6e22e">hasnext</span><span style="color:#f92672">()</span> <span style="color:#f92672">)</span> <span style="color:#f92672">{</span> 
+    MonthlyData eachData <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>MonthlyData<span style="color:#f92672">)</span>e<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">();</span> 
+    <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>finYear<span style="color:#f92672">.</span><span style="color:#a6e22e">contains</span><span style="color:#f92672">(</span>eachData<span style="color:#f92672">.</span><span style="color:#a6e22e">getMth</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span> 
+      balance <span style="color:#f92672">=</span> balance<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>eachData <span style="color:#f92672">.</span><span style="color:#a6e22e">getVotes</span><span style="color:#f92672">());</span> 
+    <span style="color:#f92672">}</span>
+  <span style="color:#f92672">}</span> 
+  <span style="color:#66d9ef">return</span> balance<span style="color:#f92672">;</span> 
+<span style="color:#f92672">}</span> 
+</code></pre></td></tr></table>
+</div>
+</div><p>PS: This is also extracted sample code.</p>
 <p>After all this pain, junit was turning green. I had small classes like Poll, MonthlyData, DateRange,
 FinancialYearUtility (to give me ranges I wanted), DateRange, Money. I was happy. Nah.  Whenever I looked at above four
 methods I wasnt. I knew I could reduce them. But couldnt. Then suddenly it struck me. Look closely. All four methods
 iterate the monthly list.</p>
-
 <p>For those mths whcih fall within a range, it gives me the balance. I started off with getBalanceTill(mth) and all
 following methods pretty much did the same.  For getBalanceTill method, I figured out its nothing but corresponding fin
 year start mth - to given mth. Bingo. Now my 4 methods looked like this:</p>
-
-<pre><code class="language-java">Poll { 
-   private Money getBalanceFor(DateRange range) { 
-     Iterator e = monthlyData.getIterator(); 
-     Money balance = new Money(0, USD); 
-     while(e.hasnext() ) { 
-       MonthlyData eachData = (MonthlyData)e.next(); 
-       if(range.contains(eachData.getMth()) { 
-         balance = balance.add(eachData .getVotes()); 
-       } 
-     }
-     return balance; 
-   } 
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Poll <span style="color:#f92672">{</span> 
+   <span style="color:#66d9ef">private</span> Money <span style="color:#a6e22e">getBalanceFor</span><span style="color:#f92672">(</span>DateRange range<span style="color:#f92672">)</span> <span style="color:#f92672">{</span> 
+     Iterator e <span style="color:#f92672">=</span> monthlyData<span style="color:#f92672">.</span><span style="color:#a6e22e">getIterator</span><span style="color:#f92672">();</span> 
+     Money balance <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Money<span style="color:#f92672">(</span>0<span style="color:#f92672">,</span> USD<span style="color:#f92672">);</span> 
+     <span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>e<span style="color:#f92672">.</span><span style="color:#a6e22e">hasnext</span><span style="color:#f92672">()</span> <span style="color:#f92672">)</span> <span style="color:#f92672">{</span> 
+       MonthlyData eachData <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>MonthlyData<span style="color:#f92672">)</span>e<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">();</span> 
+       <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>range<span style="color:#f92672">.</span><span style="color:#a6e22e">contains</span><span style="color:#f92672">(</span>eachData<span style="color:#f92672">.</span><span style="color:#a6e22e">getMth</span><span style="color:#f92672">())</span> <span style="color:#f92672">{</span> 
+         balance <span style="color:#f92672">=</span> balance<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>eachData <span style="color:#f92672">.</span><span style="color:#a6e22e">getVotes</span><span style="color:#f92672">());</span> 
+       <span style="color:#f92672">}</span> 
+     <span style="color:#f92672">}</span>
+     <span style="color:#66d9ef">return</span> balance<span style="color:#f92672">;</span> 
+   <span style="color:#f92672">}</span> 
    
-   public Money getBalanceTill(Date mth) { 
-     return getBalanceForRange(financialYearUtility.getRangeFor(mth)); 
-   } 
+   <span style="color:#66d9ef">public</span> Money <span style="color:#a6e22e">getBalanceTill</span><span style="color:#f92672">(</span>Date mth<span style="color:#f92672">)</span> <span style="color:#f92672">{</span> 
+     <span style="color:#66d9ef">return</span> getBalanceForRange<span style="color:#f92672">(</span>financialYearUtility<span style="color:#f92672">.</span><span style="color:#a6e22e">getRangeFor</span><span style="color:#f92672">(</span>mth<span style="color:#f92672">));</span> 
+   <span style="color:#f92672">}</span> 
    
-   public Money getQuarterlyBalance(int quarterNo, DateRange finYear) { 
-     return getBalanceForRange(financialYearUtility.getQuarter(quarterNo, finYear)); 
-   } 
+   <span style="color:#66d9ef">public</span> Money <span style="color:#a6e22e">getQuarterlyBalance</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> quarterNo<span style="color:#f92672">,</span> DateRange finYear<span style="color:#f92672">)</span> <span style="color:#f92672">{</span> 
+     <span style="color:#66d9ef">return</span> getBalanceForRange<span style="color:#f92672">(</span>financialYearUtility<span style="color:#f92672">.</span><span style="color:#a6e22e">getQuarter</span><span style="color:#f92672">(</span>quarterNo<span style="color:#f92672">,</span> finYear<span style="color:#f92672">));</span> 
+   <span style="color:#f92672">}</span> 
    
-   public Money getHalfYearlyBalance(int halfYearlyNo, DateRange finYear) { 
-     return getBalanceForRange(financialYearUtility.getHalfYear(halfYearlyNo, finYear)); 
-   } 
+   <span style="color:#66d9ef">public</span> Money <span style="color:#a6e22e">getHalfYearlyBalance</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> halfYearlyNo<span style="color:#f92672">,</span> DateRange finYear<span style="color:#f92672">)</span> <span style="color:#f92672">{</span> 
+     <span style="color:#66d9ef">return</span> getBalanceForRange<span style="color:#f92672">(</span>financialYearUtility<span style="color:#f92672">.</span><span style="color:#a6e22e">getHalfYear</span><span style="color:#f92672">(</span>halfYearlyNo<span style="color:#f92672">,</span> finYear<span style="color:#f92672">));</span> 
+   <span style="color:#f92672">}</span> 
    
-   public Money getYearlyBalance(DateRange finYear) { 
-     return getBalanceForRange(finYear); 
-   } 
-} 
-</code></pre>
-
-<p>Note:
+   <span style="color:#66d9ef">public</span> Money <span style="color:#a6e22e">getYearlyBalance</span><span style="color:#f92672">(</span>DateRange finYear<span style="color:#f92672">)</span> <span style="color:#f92672">{</span> 
+     <span style="color:#66d9ef">return</span> getBalanceForRange<span style="color:#f92672">(</span>finYear<span style="color:#f92672">);</span> 
+   <span style="color:#f92672">}</span> 
+<span style="color:#f92672">}</span> 
+</code></pre></td></tr></table>
+</div>
+</div><p>Note:
 I was very happy because it reduced lines of code and made code more simpler. My pair partner (a learner ;-) aruged
 getYearlyBalance and getBalanceFor(range) methods are same. I said yes.  But I went for transparency than reducing even
 more lines of code because that would make the code confusing.
 He asked how and I said if year mthd does the task of calculating balances then half yearly method looks like:</p>
-
-<pre><code class="language-java">public Money getHalfYearlyBalance(int halfYearlyNo, DateRange finYear) { 
-  return getYearlyBalance(financialYearUtility.getHalfYear(halfYearlyNo, finYear)); 
-} // i will go nuts if i read something like this 
-</code></pre>
-
-<p>So you got to judge the values of refactorings. First up, refactoring is letting u enable DRY (Dont Repeat Yourself)
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> Money <span style="color:#a6e22e">getHalfYearlyBalance</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> halfYearlyNo<span style="color:#f92672">,</span> DateRange finYear<span style="color:#f92672">)</span> <span style="color:#f92672">{</span> 
+  <span style="color:#66d9ef">return</span> getYearlyBalance<span style="color:#f92672">(</span>financialYearUtility<span style="color:#f92672">.</span><span style="color:#a6e22e">getHalfYear</span><span style="color:#f92672">(</span>halfYearlyNo<span style="color:#f92672">,</span> finYear<span style="color:#f92672">));</span> 
+<span style="color:#f92672">}</span> <span style="color:#75715e">// i will go nuts if i read something like this 
+</span></code></pre></td></tr></table>
+</div>
+</div><p>So you got to judge the values of refactorings. First up, refactoring is letting u enable DRY (Dont Repeat Yourself)
 principle. At the same time keep looking for writing maintainable code.</p>
-
 <p>Surprising aint it, that when I get into projects which force me to write procedural code in Java, I SUCK BIG TIME&gt; but
 i m happy (that means I cant move away from OO code :-). Some things in life cant be explained.</p>
-
 <p>This learner friend of mine remarked &ldquo;No probs if you are arrogant about your OO Skills. Be like that. Its FUN&rdquo; :-)</p>
-
 <p>Anyone wants to expand Money class and handle all conversions is welcome. I am more than glad. :-P. Anyone wants to
 learn Refactoring, TDD give me a shout.</p>
 
   </main>
+  <div class="prev-next-post">
+<div class="prev-post">
+	
+	<a class="link-reverse" href="https://www.deepaksurti.com/no-new-year-resolutions/?ref=footer">« No New Year Resolutions </a>
+	
+</div>
+
+<div class="next-post">
+	
+	<a class="link-reverse" href="https://www.deepaksurti.com/java-access-specifiers/?ref=footer">Java Access Specifiers »</a>
+	
+</div>
+
+</div>
+
+
+
   <div id="disqus-container">
   
     <button id="disqus-button" onclick="showComments()">Show comments</button>
@@ -504,6 +672,8 @@ disqusComments.style.display = 'block';
 <link rel="stylesheet" href="/css/search.fe0cd54a21628574bff49d721c827d1bb165ab56b0f22dd55ae78addbe61c309.css"></link>
 
 
+
+  <script src="/js/medium-zoom.js"></script>
 
   <script src="/js/custom_01.js"></script>
 

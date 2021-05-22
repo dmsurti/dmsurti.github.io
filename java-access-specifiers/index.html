@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.83.1" />
   <link rel="canonical" href="/java-access-specifiers/">
 
   
@@ -184,6 +184,7 @@
       
       
       
+      
       <a href="/" >
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
@@ -193,6 +194,7 @@
     </li>
   
     <li class="pattern">
+      
       
       
       
@@ -210,6 +212,21 @@
       
       
       
+      
+      <a href="/series/" >
+        <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
+          <use xlink:href="#bookmark"></use>
+        </svg>
+        <span class="text">Tutorials</span>
+      </a>
+    </li>
+  
+    <li class="pattern">
+      
+      
+      
+      
+      
       <a href="/projects" >
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
@@ -219,6 +236,7 @@
     </li>
   
     <li class="pattern">
+      
       
       
       
@@ -233,6 +251,7 @@
   
   </ul>
 </nav>
+
     
   </div>
 </header>
@@ -274,6 +293,23 @@
       </div>
     
     
+    <div class="prev-next-post">
+<div class="prev-post">
+	
+	<a class="link-reverse" href="https://www.deepaksurti.com/why-refactoring-helps/?ref=footer">« Why Refactoring Helps </a>
+	
+</div>
+
+<div class="next-post">
+	
+	<a class="link-reverse" href="https://www.deepaksurti.com/reading-styles/?ref=footer">Reading Styles »</a>
+	
+</div>
+
+</div>
+
+
+
     
       
 
@@ -281,26 +317,17 @@
     
 
     <p>So many times there is confusion about java and its access specifers. Here’s what they mean once and for all.</p>
-
 <p>Public: Available to all wherever you may be.</p>
-
 <p>Private: Available only to me.</p>
-
 <p>Protected: Available to my derived types.</p>
-
 <p>Friend: Available to all who belong to my group (package) i.e. are my friends.</p>
-
 <p>Naturally, if I make a class private it can’t be accessed by anyone except the class itself! Now trying make a class
 protected. Then it will available to only its derived types. But its protected and you cant derive a type. Hence
 classes don’t have private/protected specifiers. They have only public / friend specifiers.</p>
-
 <p>However pick any class member and you can safely say it can be either public, private, protected or friend.</p>
-
 <p>That’s good enough. But real java code will be a mix of public/friend classes with members at different access levels.
 The matrix is revealed below:</p>
-
 <p>The following is a list of classes we have:</p>
-
 <table>
 <thead>
 <tr>
@@ -309,32 +336,27 @@ The matrix is revealed below:</p>
 <th>Package</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>A</td>
 <td>Public</td>
 <td>com.test</td>
 </tr>
-
 <tr>
 <td>B</td>
 <td>Public or Friend</td>
 <td>com.test</td>
 </tr>
-
 <tr>
 <td>C extends A</td>
 <td>Public of Friend</td>
 <td>com.test</td>
 </tr>
-
 <tr>
 <td>D</td>
 <td>Public of Friend</td>
 <td>com.testother</td>
 </tr>
-
 <tr>
 <td>E extends A</td>
 <td>Public of Friend</td>
@@ -342,10 +364,8 @@ The matrix is revealed below:</p>
 </tr>
 </tbody>
 </table>
-
 <p>Lets see what members of A are accessible to what members of B, C, D, E. Classes B, C are in same package as A while D,
 E are outside of the package that A belongs to.</p>
-
 <table>
 <thead>
 <tr>
@@ -354,26 +374,22 @@ E are outside of the package that A belongs to.</p>
 <th>Can be overridden by</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>Public</td>
 <td>B, C, D, E</td>
 <td>C, E</td>
 </tr>
-
 <tr>
 <td>Protected</td>
 <td>C, E</td>
 <td>C, E</td>
 </tr>
-
 <tr>
 <td>Friend</td>
 <td>B, C</td>
 <td>C</td>
 </tr>
-
 <tr>
 <td>Private</td>
 <td>None</td>
@@ -381,11 +397,8 @@ E are outside of the package that A belongs to.</p>
 </tr>
 </tbody>
 </table>
-
 <p>Now lets apply the above to a friend class.</p>
-
 <p>The following is a list of classes we have:</p>
-
 <table>
 <thead>
 <tr>
@@ -394,20 +407,17 @@ E are outside of the package that A belongs to.</p>
 <th>Package</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>F</td>
 <td>Friend</td>
 <td>com.test</td>
 </tr>
-
 <tr>
 <td>G</td>
 <td>Public or Friend</td>
 <td>com.test</td>
 </tr>
-
 <tr>
 <td>H extends F</td>
 <td>Public of Friend</td>
@@ -415,11 +425,8 @@ E are outside of the package that A belongs to.</p>
 </tr>
 </tbody>
 </table>
-
 <p>Naturally here I consider classes only in same package as F.</p>
-
 <p>Lets see what happens here.</p>
-
 <table>
 <thead>
 <tr>
@@ -428,26 +435,22 @@ E are outside of the package that A belongs to.</p>
 <th>Can be overridden by</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>Public</td>
 <td>G, H</td>
 <td>H</td>
 </tr>
-
 <tr>
 <td>Protected</td>
 <td>H</td>
 <td>H</td>
 </tr>
-
 <tr>
 <td>Friend</td>
 <td>G, H</td>
 <td>H</td>
 </tr>
-
 <tr>
 <td>Private</td>
 <td>None</td>
@@ -455,10 +458,26 @@ E are outside of the package that A belongs to.</p>
 </tr>
 </tbody>
 </table>
-
 <p>Note that static public members of F can be accessed outside the package!</p>
 
   </main>
+  <div class="prev-next-post">
+<div class="prev-post">
+	
+	<a class="link-reverse" href="https://www.deepaksurti.com/why-refactoring-helps/?ref=footer">« Why Refactoring Helps </a>
+	
+</div>
+
+<div class="next-post">
+	
+	<a class="link-reverse" href="https://www.deepaksurti.com/reading-styles/?ref=footer">Reading Styles »</a>
+	
+</div>
+
+</div>
+
+
+
   <div id="disqus-container">
   
     <button id="disqus-button" onclick="showComments()">Show comments</button>
@@ -517,6 +536,8 @@ disqusComments.style.display = 'block';
 <link rel="stylesheet" href="/css/search.fe0cd54a21628574bff49d721c827d1bb165ab56b0f22dd55ae78addbe61c309.css"></link>
 
 
+
+  <script src="/js/medium-zoom.js"></script>
 
   <script src="/js/custom_01.js"></script>
 

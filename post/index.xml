@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blog on Cupper</title>
@@ -6,19 +6,15 @@
     <description>Recent content in Blog on Cupper</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 17 May 2005 05:13:32 -0800</lastBuildDate>
-    
-	<atom:link href="https://www.deepaksurti.com/post/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 17 May 2005 05:13:32 -0800</lastBuildDate><atom:link href="https://www.deepaksurti.com/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hibernate Mappings &amp; Encapsulated Collections</title>
       <link>https://www.deepaksurti.com/hibernate-mappings-collections/</link>
       <pubDate>Tue, 17 May 2005 05:13:32 -0800</pubDate>
       
       <guid>https://www.deepaksurti.com/hibernate-mappings-collections/</guid>
-      <description>Collections must be encapsulated. Also I am using Hibernate as the persistence solution. I have a uni-directional many to many relationship between Parent and Child. My java code looks like this:
-Parent { String name; Set children = new HashSet(); public void getChildren() { return Collections.unmodifiableCollection(children); } private void setChildren(Set children) { this.children = children; } public void addChild(Child obj) { ///..... } public void removeChild(Child obj) { ///.... } } Child { String name; //.</description>
+      <description>Collections must be encapsulated . Also I am using Hibernate as the persistence solution. I have a uni-directional many to many relationship between Parent and Child. My java code looks like this:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26  Parent { String name; Set children = new HashSet(); public void getChildren() { return Collections.</description>
     </item>
     
     <item>
@@ -38,7 +34,7 @@ Parent { String name; Set children = new HashSet(); public void getChildren() { 
       <guid>https://www.deepaksurti.com/using-agile/</guid>
       <description>The past 3 yrs or so I have learnt a lot of lessons, most of which are &amp;ldquo;how to write better software&amp;rdquo;. &amp;hellip;
 The challenge in front of me is to, at every given opportunity (with a change of perception I realize these are infinite) use agile practices.
-Why do I want to use agile practices? Most importantly using agile practices makes my life less stressful and work infinte fun :-)</description>
+Why do I want to use agile practices? ¶ Most importantly using agile practices makes my life less stressful and work infinte fun :-)</description>
     </item>
     
     <item>
@@ -58,8 +54,8 @@ I was already handed out some partly written code. I was happy because I am trai
       
       <guid>https://www.deepaksurti.com/changing-mindset/</guid>
       <description>In an earlier post I had pointed out use of TDD and Refactoring to write the domain logic for poll measurements.
-Key activities still were to be done: - Persist this data onto database. - Create views to play with this data.
-You may have guessed I believe in working demos. Not html prototypes. I want to see in code that I can do it atleast in 1 way what I or you claim to be possible.</description>
+Key activities still were to be done:
+ Persist this data onto database. Create views to play with this data.  You may have guessed I believe in working demos. Not html prototypes. I want to see in code that I can do it atleast in 1 way what I or you claim to be possible.</description>
     </item>
     
     <item>
@@ -78,8 +74,8 @@ You may note I have not mentioned business analysts/functional/domain experts.</
       <pubDate>Fri, 04 Feb 2005 07:53:59 -0800</pubDate>
       
       <guid>https://www.deepaksurti.com/reading-styles/</guid>
-      <description>Reading a Newspaper Reading a Comprehension Piece Reading a Book Details Awareness  Here&amp;rsquo;s a sample of how I read. Basically how I approach. Please note that these are only general tips and you will need to make changes as per your requirments.
-Reading a Newspaper The articles of interest for me are typically columns, edits and analysis types. (You may see I have an Indian Express hangover :-).</description>
+      <description>Reading a Newspaper  Reading a Comprehension Piece  Reading a Book  Details Awareness   Here&amp;rsquo;s a sample of how I read. Basically how I approach. Please note that these are only general tips and you will need to make changes as per your requirments.
+Reading a Newspaper ¶ The articles of interest for me are typically columns, edits and analysis types. (You may see I have an Indian Express hangover :-).</description>
     </item>
     
     <item>
@@ -104,7 +100,8 @@ Naturally, if I make a class private it can’t be accessed by anyone except the
       <guid>https://www.deepaksurti.com/why-refactoring-helps/</guid>
       <description>Take a look.
 I had this requirment:
-We conduct polls (which can be looked at like permanent polls). We gather monthly statistics. We want to : - find out votes cast till a month say Jun 2005 - find out votes cast for a quarter of a finanical year say Quarter 1 for 2004 - 2005 - find out votes cast for a half yearly of a financial year say half year 1 for 2004 - 2005 - find out votes cast for a fin year say 2004 - 2005.</description>
+We conduct polls (which can be looked at like permanent polls). We gather monthly statistics. We want to :
+ find out votes cast till a month say Jun 2005 find out votes cast for a quarter of a finanical year say Quarter 1 for 2004 - 2005 find out votes cast for a half yearly of a financial year say half year 1 for 2004 - 2005 find out votes cast for a fin year say 2004 - 2005.</description>
     </item>
     
     <item>
@@ -162,7 +159,7 @@ Andrew talks about PC and Internet, the two inflection points which have impacte
       <pubDate>Thu, 21 Oct 2004 01:30:34 -0800</pubDate>
       
       <guid>https://www.deepaksurti.com/i-will/</guid>
-      <description>While reading how to read better and faster by Norman Lewis, I learnt a big lesson. Which I had learnt earlier also. But then its always good to revise. The difference between &amp;ldquo;will&amp;rdquo; and &amp;ldquo;wish&amp;rdquo;. I realized that in many projects we say &amp;ldquo;wish we had automated tests, wish we had continous builds&amp;rdquo; etc. But we dont anything. Why? Because we dont really want to change or are &amp;ldquo;will&amp;rdquo;ing to put the efforts and bear the pain of change.</description>
+      <description>While reading how to read better and faster by Norman Lewis, I learnt a big lesson. Which I had learnt earlier also. But then its always good to revise. The difference between &amp;ldquo;will&amp;rdquo; and &amp;ldquo;wish&amp;rdquo;. I realized that in many projects we say &amp;ldquo;wish we had automated tests, wish we had continous builds&amp;rdquo; etc. But we dont anything. Why? Because we dont really want to change or are &amp;ldquo;will&amp;quot;ing to put the efforts and bear the pain of change.</description>
     </item>
     
     <item>

@@ -2,3 +2,55 @@
   display: block;
 }
 
+.series-highlight {
+    background: #ddd;
+    padding: 0.5625rem 0.33rem;
+    border-radius: 0.5rem;
+    line-height: 1;
+    font-size: 0.55rem;
+}
+
+.series-summary {
+    background: #ddd;
+    padding: 0.0625rem 0.33rem;
+    border-radius: 0.5rem;
+    font-size: 0.55rem;
+}
+
+.article-summary {
+    background: #ddd;
+    padding: 0.0625rem 0.33rem;
+    border-radius: 0.5rem;
+    font-size: 0.55rem;
+    text-align: right;
+}
+
+.article-number {
+    height: 2rem;
+    width: 2rem;
+    display: table-cell;
+    text-align: center;
+    vertical-align: center;
+    border-radius: 1rem;
+    background: #ddd;
+}
+
+.prev-next-post {
+    font-size: 0.65rem;
+    padding: 0.0625rem 0.33rem;
+    border-radius: 0.25rem;
+}
+
+.prev-post{
+    float: left;
+    margin: 0px;
+}
+
+.next-post {
+    text-align:right;
+    margin: 0px;
+}
+
+img {
+   mediumZoom('[data-zoomable]');
+}

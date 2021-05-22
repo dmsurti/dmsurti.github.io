@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Who am I? on Cupper</title>
@@ -6,11 +6,7 @@
     <description>Recent content in Who am I? on Cupper</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 09 Apr 2014 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://www.deepaksurti.com/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 13 Jun 2005 12:47:02 -0700</lastBuildDate><atom:link href="https://www.deepaksurti.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Projects</title>
       <link>https://www.deepaksurti.com/projects/</link>
@@ -21,13 +17,76 @@
     </item>
     
     <item>
+      <title>Review and clean up</title>
+      <link>https://www.deepaksurti.com/series/expense-calc/06/</link>
+      <pubDate>Mon, 13 Jun 2005 12:47:02 -0700</pubDate>
+      
+      <guid>https://www.deepaksurti.com/series/expense-calc/06/</guid>
+      <description>Till session 5, we implemented all 6 requirements. Time to take a look at the code keeping in mind the observations of the last session.
+First up I add more test coverage for other scenarios. Everything works fine.
+But i had pointed out about making parellel class heirarchies of expense sheet and expense statement. I try doing it but when i realize the Factory Method signatures would be different I revert back to old desing.</description>
+    </item>
+    
+    <item>
+      <title>Generating expense statement for a payer</title>
+      <link>https://www.deepaksurti.com/series/expense-calc/05/</link>
+      <pubDate>Sat, 11 Jun 2005 12:47:02 -0700</pubDate>
+      
+      <guid>https://www.deepaksurti.com/series/expense-calc/05/</guid>
+      <description>Now having implemented 4 requirements I come on to the next one:
+Requirement 5: Generate an expense statement for a payer for a date range.
+Say for bhavdeep for 1 Apr to 30 Apr 2005 genrate an expense statement should look like this:
+Bhavdeep 1 Apr 2005 to 30 Apr 2005
+ Bhavdeep receive from Surender 13 USD Bhavdeep receive from Deepak 5 USD 2 Apr 2005 Albertsons Deepak 12 USD 7 Apr 2005CostCo Surender 5 USD 16 Apr 2005 Burger King Deepak -7USD 28 Apr 2005 Panda Express Surender 8 USD  Thus we see a header with name, date range for statement, summary, and details.</description>
+    </item>
+    
+    <item>
+      <title>Generating expense statements</title>
+      <link>https://www.deepaksurti.com/series/expense-calc/04/</link>
+      <pubDate>Mon, 06 Jun 2005 12:47:02 -0700</pubDate>
+      
+      <guid>https://www.deepaksurti.com/series/expense-calc/04/</guid>
+      <description>In session 1, we implemented requirements 1 and 2. And sessions 2, 3 we spent time simplifying the design. At this stage we are now good enough to move on to implementing the next requirement.
+Requirement 3: Generate an expense sheet for a payer for a list of transactions for a date range.
+Steps: Wriet junit test case. While writing the test case I realize I have not added a date to transactoins.</description>
+    </item>
+    
+    <item>
+      <title>Simplifying transactions and expenses</title>
+      <link>https://www.deepaksurti.com/series/expense-calc/03/</link>
+      <pubDate>Sun, 05 Jun 2005 12:47:02 -0700</pubDate>
+      
+      <guid>https://www.deepaksurti.com/series/expense-calc/03/</guid>
+      <description>The tools I am using are:
+ Intellij Idea 4.5.3 CVS for source control *its a local repository on my laptop Argo UML for class diagrams. I just used visual paradigm for session 1 but argo is what i m more comfortable with.  Till now the implementation looks good enough and more importantly simple. Now when I look at the expense sheet generated for the transaction it looks somehting like this for req 1: (see session 1)</description>
+    </item>
+    
+    <item>
+      <title>Simplifying Party Hierarchy</title>
+      <link>https://www.deepaksurti.com/series/expense-calc/02/</link>
+      <pubDate>Sat, 04 Jun 2005 12:47:02 -0700</pubDate>
+      
+      <guid>https://www.deepaksurti.com/series/expense-calc/02/</guid>
+      <description>Simplifying Party heirarchy</description>
+    </item>
+    
+    <item>
+      <title>Getting Started</title>
+      <link>https://www.deepaksurti.com/series/expense-calc/01/</link>
+      <pubDate>Sat, 04 Jun 2005 12:40:02 -0700</pubDate>
+      
+      <guid>https://www.deepaksurti.com/series/expense-calc/01/</guid>
+      <description>Setup, implementing 2 basic features</description>
+    </item>
+    
+    <item>
       <title>Hibernate Mappings &amp; Encapsulated Collections</title>
       <link>https://www.deepaksurti.com/hibernate-mappings-collections/</link>
       <pubDate>Tue, 17 May 2005 05:13:32 -0800</pubDate>
       
       <guid>https://www.deepaksurti.com/hibernate-mappings-collections/</guid>
-      <description>Collections must be encapsulated. Also I am using Hibernate as the persistence solution. I have a uni-directional many to many relationship between Parent and Child. My java code looks like this:
-Parent { String name; Set children = new HashSet(); public void getChildren() { return Collections.unmodifiableCollection(children); } private void setChildren(Set children) { this.children = children; } public void addChild(Child obj) { ///..... } public void removeChild(Child obj) { ///.... } } Child { String name; //.</description>
+      <description>Collections must be encapsulated . Also I am using Hibernate as the persistence solution. I have a uni-directional many to many relationship between Parent and Child. My java code looks like this:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26  Parent { String name; Set children = new HashSet(); public void getChildren() { return Collections.</description>
     </item>
     
     <item>
@@ -47,7 +106,7 @@ Parent { String name; Set children = new HashSet(); public void getChildren() { 
       <guid>https://www.deepaksurti.com/using-agile/</guid>
       <description>The past 3 yrs or so I have learnt a lot of lessons, most of which are &amp;ldquo;how to write better software&amp;rdquo;. &amp;hellip;
 The challenge in front of me is to, at every given opportunity (with a change of perception I realize these are infinite) use agile practices.
-Why do I want to use agile practices? Most importantly using agile practices makes my life less stressful and work infinte fun :-)</description>
+Why do I want to use agile practices? ¶ Most importantly using agile practices makes my life less stressful and work infinte fun :-)</description>
     </item>
     
     <item>
@@ -67,8 +126,8 @@ I was already handed out some partly written code. I was happy because I am trai
       
       <guid>https://www.deepaksurti.com/changing-mindset/</guid>
       <description>In an earlier post I had pointed out use of TDD and Refactoring to write the domain logic for poll measurements.
-Key activities still were to be done: - Persist this data onto database. - Create views to play with this data.
-You may have guessed I believe in working demos. Not html prototypes. I want to see in code that I can do it atleast in 1 way what I or you claim to be possible.</description>
+Key activities still were to be done:
+ Persist this data onto database. Create views to play with this data.  You may have guessed I believe in working demos. Not html prototypes. I want to see in code that I can do it atleast in 1 way what I or you claim to be possible.</description>
     </item>
     
     <item>
@@ -87,8 +146,8 @@ You may note I have not mentioned business analysts/functional/domain experts.</
       <pubDate>Fri, 04 Feb 2005 07:53:59 -0800</pubDate>
       
       <guid>https://www.deepaksurti.com/reading-styles/</guid>
-      <description>Reading a Newspaper Reading a Comprehension Piece Reading a Book Details Awareness  Here&amp;rsquo;s a sample of how I read. Basically how I approach. Please note that these are only general tips and you will need to make changes as per your requirments.
-Reading a Newspaper The articles of interest for me are typically columns, edits and analysis types. (You may see I have an Indian Express hangover :-).</description>
+      <description>Reading a Newspaper  Reading a Comprehension Piece  Reading a Book  Details Awareness   Here&amp;rsquo;s a sample of how I read. Basically how I approach. Please note that these are only general tips and you will need to make changes as per your requirments.
+Reading a Newspaper ¶ The articles of interest for me are typically columns, edits and analysis types. (You may see I have an Indian Express hangover :-).</description>
     </item>
     
     <item>
@@ -113,7 +172,8 @@ Naturally, if I make a class private it can’t be accessed by anyone except the
       <guid>https://www.deepaksurti.com/why-refactoring-helps/</guid>
       <description>Take a look.
 I had this requirment:
-We conduct polls (which can be looked at like permanent polls). We gather monthly statistics. We want to : - find out votes cast till a month say Jun 2005 - find out votes cast for a quarter of a finanical year say Quarter 1 for 2004 - 2005 - find out votes cast for a half yearly of a financial year say half year 1 for 2004 - 2005 - find out votes cast for a fin year say 2004 - 2005.</description>
+We conduct polls (which can be looked at like permanent polls). We gather monthly statistics. We want to :
+ find out votes cast till a month say Jun 2005 find out votes cast for a quarter of a finanical year say Quarter 1 for 2004 - 2005 find out votes cast for a half yearly of a financial year say half year 1 for 2004 - 2005 find out votes cast for a fin year say 2004 - 2005.</description>
     </item>
     
     <item>
@@ -171,7 +231,7 @@ Andrew talks about PC and Internet, the two inflection points which have impacte
       <pubDate>Thu, 21 Oct 2004 01:30:34 -0800</pubDate>
       
       <guid>https://www.deepaksurti.com/i-will/</guid>
-      <description>While reading how to read better and faster by Norman Lewis, I learnt a big lesson. Which I had learnt earlier also. But then its always good to revise. The difference between &amp;ldquo;will&amp;rdquo; and &amp;ldquo;wish&amp;rdquo;. I realized that in many projects we say &amp;ldquo;wish we had automated tests, wish we had continous builds&amp;rdquo; etc. But we dont anything. Why? Because we dont really want to change or are &amp;ldquo;will&amp;rdquo;ing to put the efforts and bear the pain of change.</description>
+      <description>While reading how to read better and faster by Norman Lewis, I learnt a big lesson. Which I had learnt earlier also. But then its always good to revise. The difference between &amp;ldquo;will&amp;rdquo; and &amp;ldquo;wish&amp;rdquo;. I realized that in many projects we say &amp;ldquo;wish we had automated tests, wish we had continous builds&amp;rdquo; etc. But we dont anything. Why? Because we dont really want to change or are &amp;ldquo;will&amp;quot;ing to put the efforts and bear the pain of change.</description>
     </item>
     
     <item>

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <meta name="generator" content="Hugo 0.58.3" />
+  <meta name="generator" content="Hugo 0.83.1" />
   <link rel="canonical" href="/changing-mindset/">
 
   
@@ -184,6 +184,7 @@
       
       
       
+      
       <a href="/" >
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
@@ -193,6 +194,7 @@
     </li>
   
     <li class="pattern">
+      
       
       
       
@@ -210,6 +212,21 @@
       
       
       
+      
+      <a href="/series/" >
+        <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
+          <use xlink:href="#bookmark"></use>
+        </svg>
+        <span class="text">Tutorials</span>
+      </a>
+    </li>
+  
+    <li class="pattern">
+      
+      
+      
+      
+      
       <a href="/projects" >
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
@@ -219,6 +236,7 @@
     </li>
   
     <li class="pattern">
+      
       
       
       
@@ -233,6 +251,7 @@
   
   </ul>
 </nav>
+
     
   </div>
 </header>
@@ -282,6 +301,23 @@
       </div>
     
     
+    <div class="prev-next-post">
+<div class="prev-post">
+	
+	<a class="link-reverse" href="https://www.deepaksurti.com/business-knowledge-and-software-projects/?ref=footer">« Business Knowledge and Software Projects </a>
+	
+</div>
+
+<div class="next-post">
+	
+	<a class="link-reverse" href="https://www.deepaksurti.com/automated-tests/?ref=footer">Automated Tests »</a>
+	
+</div>
+
+</div>
+
+
+
     
       
 
@@ -289,61 +325,67 @@
     
 
     <p>In an earlier post I had pointed out use of TDD and Refactoring to write the domain logic for poll measurements.</p>
-
-<p>Key activities still were to be done:
-- Persist this data onto database.
-- Create views to play with this data.</p>
-
+<p>Key activities still were to be done:</p>
+<ul>
+<li>Persist this data onto database.</li>
+<li>Create views to play with this data.</li>
+</ul>
 <p>You may have guessed I believe in working demos. Not html prototypes. I want to see in code that I can do it atleast in
 1 way what I or you claim to be possible.</p>
-
 <p>So I started off with the view. The user would enter the montly data and check up with the measurements (quarterly
 etc). When satisfied he would want to persist the data. But I like to take baby steps. Hence I decide let me get the
 calculation on a view out of the way.</p>
-
 <p>I now moved to bea workshop to do this. I have liked its struts framework. I designed a jsp. THe jsp would invoke a
 calculateMeasurement action on this web app controller. The action would load the domain objects from the form and
 invoke appropriate domain methods and inform the view. The view would update it with the measures. The thing I like
 about struts framework provided by bea is the ease of use in dropping actions and invoking views without making my
 hands dirty.</p>
-
 <p>This to my surprise worked fine. Because my domain logic was pretty much in place. Now I moved to handle persistence. I
 saw my db structure and domain structure have pretty much 1-1 relationship. SO active record could be a choice. Somehow
 I feel active record makes my objects bloated. I tend to shy away from it. I just used a db control a db facade. I
 wrote the insert logic on this control. Next I created a controller action to handle inserts. It would just pass on to
 the db control required data. Also the choice of db was pointbase. :-). Spend only 5$ when you need to spend 5$. A 100$
 would be stupid aint it? oracle = 100$ pointbase = 5$.</p>
-
 <p>Similary I crated update action. For handling the object insert/update state, I didnt use a state pattern. I would use
 that if I had db objects. So for this very simple case an insert update flag would do. But as db - domain impedence
 mismatch increases I would have to refactor to a domain mapper somethign like hibernate which would take care of this.</p>
-
 <p>As of now its pretty much stable demo. It lets you do what you want to. It persists to a database. Thus it does what it
 claims to.</p>
-
 <p>I pretty much attribute all this to my agile learnings. Agile lets me ask right simple question. Or as these questions
 a result of my changed mindset? I have to yet to find an answer. ;-)</p>
-
 <p>It must be noted that key is to:</p>
-
 <ul>
 <li>Take baby steps.</li>
 <li>Think on lines of TDD at each and every possible step.</li>
 <li>even if not agile use TDD, Refactoring.</li>
 </ul>
-
 <p>When this project becomes multi member project: we must:</p>
-
 <ul>
 <li>Introduce automated builds.</li>
 <li>Introudce automated functional tests.</li>
 <li>If performance is a major factor right from start, have performance tests in place.</li>
 <li>Run functional and performance tests every night.</li>
 </ul>
-
 <p>Stay Agile. Stay in Control. Claps.</p>
 
   </main>
+  <div class="prev-next-post">
+<div class="prev-post">
+	
+	<a class="link-reverse" href="https://www.deepaksurti.com/business-knowledge-and-software-projects/?ref=footer">« Business Knowledge and Software Projects </a>
+	
+</div>
+
+<div class="next-post">
+	
+	<a class="link-reverse" href="https://www.deepaksurti.com/automated-tests/?ref=footer">Automated Tests »</a>
+	
+</div>
+
+</div>
+
+
+
   <div id="disqus-container">
   
     <button id="disqus-button" onclick="showComments()">Show comments</button>
@@ -402,6 +444,8 @@ disqusComments.style.display = 'block';
 <link rel="stylesheet" href="/css/search.fe0cd54a21628574bff49d721c827d1bb165ab56b0f22dd55ae78addbe61c309.css"></link>
 
 
+
+  <script src="/js/medium-zoom.js"></script>
 
   <script src="/js/custom_01.js"></script>
 
