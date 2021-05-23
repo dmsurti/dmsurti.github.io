@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.83.1" />
-  <link rel="canonical" href="/series/expense-calc/06/">
+  <link rel="canonical" href="/mobile-apps/dial-cricket/">
 
   
 
@@ -50,7 +50,7 @@
 
   
   
-  <title>Review and clean up | Cupper</title>
+  <title>Dial Cricket | Cupper</title>
 </head>
 
   <body>
@@ -213,7 +213,7 @@
       
       
       
-      <a href="/series/" aria-current="page">
+      <a href="/series/" >
         <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
           <use xlink:href="#bookmark"></use>
         </svg>
@@ -259,199 +259,13 @@
       <div class="main-and-footer">
         <div>
           
-  <main id="main">
-    <h1>
-      <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
-        <use xlink:href="#bookmark"></use>
-      </svg>
-      Review and clean up
-    </h1>
-
-    <div class="date">
-      
-      
-      <strong>Publish date: </strong>Jun 13, 2005
-      
-        
-      
-    </div>
-
-    
-      <div class="tags">
-        <strong>Tags: </strong>
-        <ul aria-label="tags">
-          
-            <li>
-              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
-                <use xlink:href="#tag"></use>
-              </svg>
-              
-              <a href="/tags/xp/">xp</a>
-            </li>
-          
-            <li>
-              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
-                <use xlink:href="#tag"></use>
-              </svg>
-              
-              <a href="/tags/agile/">agile</a>
-            </li>
-          
-            <li>
-              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
-                <use xlink:href="#tag"></use>
-              </svg>
-              
-              <a href="/tags/testing/">testing</a>
-            </li>
-          
-            <li>
-              <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
-                <use xlink:href="#tag"></use>
-              </svg>
-              
-              <a href="/tags/refactoring/">refactoring</a>
-            </li>
-          
-        </ul>
-      </div>
-    
-
-    <div class="prev-next-post">
-<div class="prev-post">
-	
-	<a class="link-reverse" href="https://www.deepaksurti.com/series/expense-calc/05/?ref=footer">« Generating expense statement for a payer </a>
-	
-</div>
-
-<div class="next-post">
-	
-</div>
-
-</div>
-
-
-
-    
-      
-
-
-    
-
-    <p>Till session 5, we implemented all 6 requirements. Time to take a look at the code keeping in mind the observations of
-the last session.</p>
-<p>First up I add more test coverage for other scenarios. Everything works fine.</p>
-<p>But i had pointed out about making parellel class heirarchies of expense sheet and expense statement. I try doing it
-but when i realize the Factory Method signatures would be different I revert back to old desing. I prefer factory
-method only when method signatures are same and if different then its not &lsquo;so difficult&rsquo; to make a guess about
-redundnant parameters. In my case the method signature of factory method becomes too long and confusing.</p>
-<p>Further I have kept Expense related classes package private. They wont be published to the outer world. So ensuring the
-right usage of two printStatement methods is possible. Thus no Introduce Polymorphic creation with factory method is
-used. :-). A case where refactoring doesnt make sense.</p>
-<p>Next I see my ExpenseSheet Test case and the test methods which test statement generation.The questoin that begs to be
-asked here is what should I create a Party as: Payer or Receiver. This question popped up only after adding more test
-scenarios. It becomes evident that Payer or Receiver is not &lsquo;really&rsquo; a Party Type, but a role played a Party. So Party
-bhavdeep may be a payer in one transaction and receiver in another. Another advantage of using good test coverage. I
-refactor to form a Role heirarchy which is used by Party. I update my test cases. Now they look more sensible. My test
-methods have a common feel: Create parties, set up their roles, add transaction and test &lsquo;whatever aspect&rsquo; you want to.</p>
-<p>Also I see that when I create a transaction I must process it. That is I need not call process. I make that method
-private , update my test cases and I call process in transaction constructor!Also in my test cases I did away with
-facade, dao classes. I will add these classes and packages only when required. In my test case I supply the Party with
-the list of transactions that it needs.</p>
-<p>Finally my Domain and Test Class Diagrams look like this:</p>
-<p>Domain:</p>
-
-
-
-
-
-
-
-
-
+<main id="main">
+  <h1>Dial Cricket</h1>
   
-
-
-<figure role="group" aria-describedby="caption-409fd3672d9bea727ccc502a3e9743d3">
-  <a href="/series/expense-calc/06/DomainClassDiagram6.jpg" class="img-link">
-    <img src="/series/expense-calc/06/DomainClassDiagram6.jpg">
-  </a>
-  <figcaption id="caption-409fd3672d9bea727ccc502a3e9743d3">
-    Domain Class diagram at the end of this tutorial
-  </figcaption>
-</figure>
-
-<p>Test:</p>
-
-
-
-
-
-
-
-
-
-  
-
-
-<figure role="group" aria-describedby="caption-409fd3672d9bea727ccc502a3e9743d3">
-  <a href="/series/expense-calc/06/TestClassDiagram1.jpg" class="img-link">
-    <img src="/series/expense-calc/06/TestClassDiagram1.jpg">
-  </a>
-  <figcaption id="caption-409fd3672d9bea727ccc502a3e9743d3">
-    Domain Class diagram at the end of this tutorial
-  </figcaption>
-</figure>
-
-<p>Lessons Learnt:</p>
-<ul>
-<li>I need to practice Refactorings a lot. I am still not natural at it.</li>
-<li>After that is done, come and add automated functional test cases for this project. I will use <a href="http://fit.c2.com/" target="_blank" rel="noopener">FIT</a>
-.</li>
-<li>Then attach UI and persistence and publish this desktop app.</li>
-<li>Then Claps. :-)</li>
-</ul>
-
-  </main>
-  <div class="prev-next-post">
-<div class="prev-post">
-	
-	<a class="link-reverse" href="https://www.deepaksurti.com/series/expense-calc/05/?ref=footer">« Generating expense statement for a payer </a>
-	
-</div>
-
-<div class="next-post">
-	
-</div>
-
-</div>
-
-
-
-  <div id="disqus-container">
-  
-    <button id="disqus-button" onclick="showComments()">Show comments</button>
-    <div id="disqus-comments">
-      
-      
-      
-        <p><em>Disqus comments are disabled.</em></p>
-        <script type="application/javascript">
-          function showComments() {
-            // Remove button
-var disqusButton = document.getElementById('disqus-button');
-disqusButton.parentNode.removeChild(disqusButton); 
-// Un-hide comments
-var disqusComments = document.getElementById('disqus-comments');
-disqusComments.style.display = 'block'; 
-          }
-        </script>
-      
-      <noscript>Enable JavaScript to view Disqus comments.</noscript>
-    </div>
-  
-</div>
-
+  <ul class="patterns-list" id="list">
+    
+  </ul>
+</main>
 
           
             <footer role="contentinfo">
