@@ -326,79 +326,43 @@
 . Also I am using
 Hibernate as the persistence solution. I have a uni-directional many to many relationship between Parent and Child. My
 java code looks like this:</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Parent <span style="color:#f92672">{</span>
-  String name<span style="color:#f92672">;</span>
-  Set children <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashSet<span style="color:#f92672">();</span>
+<pre><code class="language-java">Parent {
+  String name;
+  Set children = new HashSet();
   
-  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">getChildren</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">return</span> Collections<span style="color:#f92672">.</span><span style="color:#a6e22e">unmodifiableCollection</span><span style="color:#f92672">(</span>children<span style="color:#f92672">);</span>
-  <span style="color:#f92672">}</span>
+  public void getChildren() {
+    return Collections.unmodifiableCollection(children);
+  }
   
-  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setChildren</span><span style="color:#f92672">(</span>Set children<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">children</span> <span style="color:#f92672">=</span> children<span style="color:#f92672">;</span>
-  <span style="color:#f92672">}</span>
+  private void setChildren(Set children) {
+    this.children = children;
+  }
   
-  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">addChild</span><span style="color:#f92672">(</span>Child obj<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-  <span style="color:#75715e">///.....
-</span><span style="color:#75715e"></span>  <span style="color:#f92672">}</span>
+  public void addChild(Child obj) {
+  ///.....
+  }
   
-  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">removeChild</span><span style="color:#f92672">(</span>Child obj<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-  <span style="color:#75715e">///....
-</span><span style="color:#75715e"></span>  <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
+  public void removeChild(Child obj) {
+  ///....
+  }
+}
   
-Child <span style="color:#f92672">{</span>
-  String name<span style="color:#f92672">;</span>
-  <span style="color:#75715e">//......
-</span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+Child {
+  String name;
+  //......
+}
 
-</code></pre></td></tr></table>
-</div>
-</div><p>Now I have hibernate mapping like this:</p>
+</code></pre>
+<p>Now I have hibernate mapping like this:</p>
 <h3 id="for-parent">For parent <a href="#for-parent">¶</a></h3>
 <pre><code>set name=&quot;children&quot; table=&quot;ParentChildren&quot;
 key column=&quot;parent_child_id&quot;
 many-to-many column=&quot;child_id&quot; class=&quot;Child&quot;
-</code></pre><h3 id="hibernate-code">Hibernate code <a href="#hibernate-code">¶</a></h3>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">session<span style="color:#f92672">.</span><span style="color:#a6e22e">createCriteria</span><span style="color:#f92672">(</span>Parent<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">).</span><span style="color:#a6e22e">list</span><span style="color:#f92672">()</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>When I execute above code something funny happens:All join table records are deleted and re-inserted.</p>
+</code></pre>
+<h3 id="hibernate-code">Hibernate code <a href="#hibernate-code">¶</a></h3>
+<pre><code class="language-java">session.createCriteria(Parent.class).list()
+</code></pre>
+<p>When I execute above code something funny happens:All join table records are deleted and re-inserted.</p>
 <p>The problem after digging through HIbernate documentation was this:</p>
 <aside aria-label="warning" class="note warning">
   <div>
@@ -416,7 +380,8 @@ hibernate.
 <p><em>Now if I pass a collection thats same I end up violating encapsulation.</em></p>
 <p>To my set I added inverse=&ldquo;true&rdquo; attribute</p>
 <pre><code>set name=&quot;children&quot; inverse=&quot;true&quot;
-</code></pre><p><strong>But this is an incorrect solution that works!.</strong> If you look up the definiton of inverse it means:</p>
+</code></pre>
+<p><strong>But this is an incorrect solution that works!.</strong> If you look up the definiton of inverse it means:</p>
 <ul>
 <li>Inverse signifies a bi-direction association</li>
 <li>Inverse = true says that this end is not responsible for association maintenance.</li>
@@ -426,31 +391,17 @@ wrong. Because as of now I am only reading the records its fine. But for manipul
 Becasue whatever I do with child collection wont be persisted to the db.</p>
 <p><em>The challenge was thus to achieve both: encapsulation of collection and proper usage of hibernate.</em></p>
 <p><strong>The solution looks like this:</strong></p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Parent <span style="color:#f92672">{</span>
-  <span style="color:#66d9ef">private</span> Set <span style="color:#a6e22e">getChildren</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">children</span><span style="color:#f92672">;</span> <span style="color:#75715e">//same as what hibernate sets..make it private
-</span><span style="color:#75715e"></span>  <span style="color:#f92672">}</span>
-  <span style="color:#66d9ef">public</span> Iterator <span style="color:#a6e22e">children</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">children</span><span style="color:#f92672">.</span><span style="color:#a6e22e">iterator</span><span style="color:#f92672">();</span>
-    <span style="color:#75715e">//now clients cant modify the collection without invokding add/remove methods
-</span><span style="color:#75715e"></span>  <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>Also the mapping remains the same as originally..viz without the inverese attribute because this is unidirectional
+<pre><code class="language-java">Parent {
+  private Set getChildren() {
+    return this.children; //same as what hibernate sets..make it private
+  }
+  public Iterator children() {
+    return this.children.iterator();
+    //now clients cant modify the collection without invokding add/remove methods
+  }
+}
+</code></pre>
+<p>Also the mapping remains the same as originally..viz without the inverese attribute because this is unidirectional
 association. Also semantically this is correct because now children manipulation will be persisted to the database.</p>
 <h2 id="solution-summary">Solution summary <a href="#solution-summary">¶</a></h2>
 <div class="ticks">

@@ -14,7 +14,7 @@
       
       <guid>https://www.deepaksurti.com/hibernate-mappings-collections/</guid>
       <description>Collections must be encapsulated . Also I am using Hibernate as the persistence solution. I have a uni-directional many to many relationship between Parent and Child. My java code looks like this:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26  Parent { String name; Set children = new HashSet(); public void getChildren() { return Collections.</description>
+Parent { String name; Set children = new HashSet(); public void getChildren() { return Collections.unmodifiableCollection(children); } private void setChildren(Set children) { this.children = children; } public void addChild(Child obj) { ///..... } public void removeChild(Child obj) { ///.... } } Child { String name; //.</description>
     </item>
     
   </channel>
