@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
-<title>Making 3D Graphics Fun Again</title>
-<link rel="alternate" type="application/rss+xml" title="RSS" href="https://www.deepaksurti.com/index.xml">
-<link rel="alternate" type="application/json" title="JSON" href="https://www.deepaksurti.com/index.json">
-<meta name="description" content="About Hello! My name is Deepak Surti. I am a Software Engineer with a focus on 3D Graphics and it&amp;amp;rsquo;s applications across various domains. I am lucky that I am paid …">
+<title>Projects – Making 3D Graphics Fun Again</title>
+<link rel="alternate" type="application/rss+xml" title="RSS" href="https://www.deepaksurti.com/projects/index.xml">
+<link rel="alternate" type="application/json" title="JSON" href="https://www.deepaksurti.com/projects/index.json">
+<meta name="description" content="This page higlights several of my personal projects. I have also included a few professional projects which are in the public domain. AssimpKit Mayavi AssimpKit Objective …">
 <meta name="created" content="0001-01-01T00:00:00+0000">
 <meta name="modified" content="0001-01-01T00:00:00+0000">
 
 <meta name="contact" content="info@example.org">
 <meta property="og:site_name" content="Making 3D Graphics Fun Again">
-<meta property="og:title" content="Making 3D Graphics Fun Again">
-<meta property="og:url" content="https://www.deepaksurti.com/">
+<meta property="og:title" content="Projects">
+<meta property="og:url" content="https://www.deepaksurti.com/projects/">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://www.deepaksurti.com/apple-touch-icon.png">
 <meta name="generator" content="Hugo 0.101.0" />
@@ -21,7 +21,7 @@
 <meta name="theme-color" content="#ffffff">
 
 
-<link rel="canonical" href="https://www.deepaksurti.com/">
+<link rel="canonical" href="https://www.deepaksurti.com/projects/">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -35,8 +35,8 @@
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "url" : "https://www.deepaksurti.com/",
-    "name": "Making 3D Graphics Fun Again",
+    "url" : "https://www.deepaksurti.com/projects/",
+    "name": "Projects",
     "description": "3D Graphics Treasure Island.",
     "image" : "https://www.deepaksurti.com/apple-touch-icon.png",
     "mainEntityOfPage": {
@@ -63,7 +63,7 @@
 
 </head>
 
-<body class="list-page front">
+<body class="list-page">
 <div class="page layout__page">
 <header class="header layout__header">
 <a href="/" title="Home" rel="home" class="header__logo"><img src="/images/logo.png" width="64" alt="Home" class="header__logo-image"></a>
@@ -77,40 +77,61 @@
 <nav class="main-menu layout__navigation">
 <h2 class="visually-hidden">Main menu</h2>
 <ul class="navbar">
-<li><a href="/" class="active" aria-current="page">Home</a></li>
-<li><a href="/projects/">Projects</a></li>
+<li><a href="/">Home</a></li>
+<li><a href="/projects/" class="active" aria-current="page">Projects</a></li>
 </ul>
 </nav>
 
 
 <main class="main layout__main">
-<article class="single-view">
+
+
 <div class="content">
-<h1 id="about">About</h1>
-<p>Hello! My name is Deepak Surti. I am a Software Engineer with a focus on 3D Graphics and it&rsquo;s
-applications across various domains. I am lucky that I am paid to work on 3D Graphics which also
-happens to be both a passion and a hobby.</p>
-<p>I enjoy programming and try to keep myself busy with interesting, relevant side projects.</p>
-<p>My toolkit is to use Lisp for rapid prototyping and using the relevant production language
-appropriate for the 3D application and the platform.</p>
-<p>This is my personal website, and you will find here thoughts, ideas, code, opinion that I came up
-with during my personal time outside of my paid, professional work commitments. The projects that I
-have worked on professionally and are in the public domain are attributed so explicitly.</p>
-<h1 id="disclaimer">Disclaimer</h1>
-<p>Everything expressed here either by me or attributed/attributable to me; including but not
-restricted to thoughts, code, opinion, comments; is my personal content and not those of or
-attributed/attributable to any of my current, past, or future employers or clients or any external
-entity. If it is otherwise so, it is attributed explicitly with the relevant details. Please
-consider yourself so notified.</p>
+<p>This page higlights several of my personal projects. I have also included a few professional
+projects which are in the public domain.</p>
+<ul>
+<li><a href="#assimpkit">AssimpKit</a></li>
+<li><a href="#mayavi">Mayavi</a></li>
+</ul>
+<hr>
+<h3 id="assimpkit">AssimpKit</h3>
+<p><em><strong>Objective C, 3D Format Processor</strong></em></p>
+<p>A cross platform library (macOS, iOS) that converts files supported by Assimp into SceneKit scenes.</p>
+<ul>
+<li>Supports geometry.</li>
+<li>Materials (both color and texture).</li>
+<li>Cameras.</li>
+<li>Skeletal animations.</li>
+<li>Serialization to .scn format.</li>
+</ul>
+<p><img src="/images/assimpkit-ios.png" alt="AssimpKit-iOS">
+<img src="/images/assimpkit.png" alt="AssimpKit"></p>
+<p><a href="https://github.com/dmsurti/AssimpKit">Github</a></p>
+<hr>
+<h3 id="mayavi">Mayavi</h3>
+<p><em><strong>Python, Scientific Visualization</strong></em></p>
+<p><em><strong>Work @ <a href="https://www.enthought.com">Enthought</a></strong></em></p>
+<p>A python application and library for 3D scientific visualization built on top of VTK, with seamless
+integration with python scientific libraries.</p>
+<ul>
+<li>Upgrade the VTK Compatibility to 5.10, 6.x and 7.0</li>
+<li>The upgrade to 6.x required an extensive refactor to use VTK&rsquo;s new pipeline architecture while
+ensuring backward compatibility with old VTK 5.10 version, which used the old pipeline
+architecture.</li>
+<li>Various other bug fixes, reducing memory leaks and release related tasks.</li>
+</ul>
+<p><a href="https://github.com/enthought/mayavi/commits?author=dmsurti">Github</a></p>
+<p><img src="/images/mayavi.png" alt="mayavi-visualization"></p>
 
 </div>
-</article>
+
+
 
 </main>
 
 
 <footer class="footer layout__footer">
-<p>Follow: <a rel="alternate" type="application/rss&#43;xml" href="https://www.deepaksurti.com/index.xml">RSS</a> | <a rel="alternate" type="application/json" href="https://www.deepaksurti.com/index.json">JSON</a></p>
+<p>Follow projects: <a rel="alternate" type="application/rss&#43;xml" href="https://www.deepaksurti.com/projects/index.xml">RSS</a> | <a rel="alternate" type="application/json" href="https://www.deepaksurti.com/projects/index.json">JSON</a></p>
 <p>Copyright Deepak Surti</p>
 <p>Powered by <a href="https://gohugo.io/">Hugo</a> and the <a href="https://github.com/frjo/hugo-theme-zen">Zen theme</a>.</p>
 
@@ -126,8 +147,8 @@ consider yourself so notified.</p>
     <nav class="mobile-nav__main-menu">
     <h2 class="visually-hidden">Main menu</h2>
     <ul class="mobile-nav__navbar">
-    <li><a href="/" class="active" aria-current="page">Home</a></li>
-    <li><a href="/projects/">Projects</a></li>
+    <li><a href="/">Home</a></li>
+    <li><a href="/projects/" class="active" aria-current="page">Projects</a></li>
     </ul>
     </nav>
   </div>
