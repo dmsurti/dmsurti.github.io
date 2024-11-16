@@ -1,0 +1,11 @@
+
+{
+    "version": "https://jsonfeed.org/version/1.1",
+    "title": "The Funny Cow on Making 3D Graphics Fun Again",
+    "description": "Recent content in The Funny Cow on Making 3D Graphics Fun Again",
+    "home_page_url": "http://localhost:1313/",
+    "feed_url": "http://localhost:1313/thefunnycow/index.json",
+    "language": "en-GB",
+    "items": [
+        ]
+}
