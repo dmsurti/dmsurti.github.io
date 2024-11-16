@@ -2,11 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Projects on Making 3D Graphics Fun Again</title>
-    <link>https://www.deepaksurti.com/projects/</link>
+    <link>http://localhost:1313/projects/</link>
     <description>Recent content in Projects on Making 3D Graphics Fun Again</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-GB</language>
-    <atom:link href="https://www.deepaksurti.com/projects/index.xml" rel="self" type="application/rss+xml" />
-    
+      <atom:link href="http://localhost:1313/projects/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

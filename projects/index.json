@@ -1,19 +1,11 @@
+
 {
     "version": "https://jsonfeed.org/version/1.1",
     "title": "Projects on Making 3D Graphics Fun Again",
     "description": "Recent content in Projects on Making 3D Graphics Fun Again",
-    "home_page_url": "https://www.deepaksurti.com",
-    "feed_url": "https://www.deepaksurti.com/projects/index.json",
+    "home_page_url": "http://localhost:1313/",
+    "feed_url": "http://localhost:1313/projects/index.json",
     "language": "en-GB",
-    "icon": "https://www.deepaksurti.com/apple-touch-icon.png",
-    "favicon": "https://www.deepaksurti.com/apple-touch-icon.png",
-    "authors": [
-        {
-            "name": "Deepak Surti",
-            "url": "https://www.deepaksurti.com",
-            "avatar": "https://www.deepaksurti.com/images/My-Memoji.jpg"
-        }
-    ],
     "items": [
         ]
 }
